@@ -1,1 +1,1 @@
-window.YALLA_BUILD = Object.freeze({version:'2026.11.10.3', date:'2026-11-10'});
+window.YALLA_BUILD = Object.freeze({version:'2026.11.10.4', date:'2026-11-10'});

@@ -6,11 +6,15 @@ const handlers = {}, deleted = [], entries = new Map();
 const base = 'https://example.test/english/';
 const key = request => new URL(typeof request === 'string' ? request : request.url,base).pathname;
 const cache = {
-  async addAll(files) { for(const file of files) entries.set(key(file),file); },
+  async addAll(files) { for(const request of files) {
+    assert.equal(request.cache,'reload','Installing an update must bypass stale browser HTTP-cache assets');
+    const file='./'+new URL(request.url).pathname.slice('/english/'.length);
+    entries.set(key(request),file);
+  } },
   async match(request) { const file=entries.get(key(request)); return file ? new Response(file,{headers:{'Content-Type':file.endsWith('.wav')?'audio/wav':file.endsWith('.mp3')?'audio/mpeg':'text/html'}}) : undefined; }
 };
 const worker = {
-  URL, Response,
+  URL, Response, Request,
   self:{location:{origin:'https://example.test'},registration:{scope:base},clients:{async claim(){}},skipWaiting(){worker.activated=true;},addEventListener(name,fn){handlers[name]=fn;}},
   caches:{async open(){return cache;},async keys(){return ['unrelated-app','yalla-english-v1',worker.cacheVersion];},async delete(k){deleted.push(k);}},
   async fetch(){throw new Error('Offline');}

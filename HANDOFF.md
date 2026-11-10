@@ -1,6 +1,6 @@
 # HANDOFF — Yalla English (current, 2026-11-10)
 
-Read this file before editing. Current release: 2026.11.10.3. Read AUDIO_QA_REPORT_HE.md and CLAUDE_ELEVENLABS_HANDOFF_HE.md for the latest user decision. REVIEW_REPORT_HE.md describes the earlier curriculum review. Original backups exist locally only and are excluded from Git.
+Read this file before editing. Current release: 2026.11.10.4. Read AUDIO_QA_REPORT_HE.md and CLAUDE_ELEVENLABS_HANDOFF_HE.md for the latest user decision. REVIEW_REPORT_HE.md describes the earlier curriculum review. Original backups exist locally only and are excluded from Git.
 
 ## Product and constraints
 
@@ -25,7 +25,7 @@ The app is static HTML/CSS/classic JavaScript, with no framework, npm or build r
 4. js/app.js — course indexing, validated local state, audio orchestration, grading, lesson generators/renderers, sessions, UI and events.
 5. css/style.css + css/learning.css — original styles plus current learning UI and accessibility improvements.
 6. audio/letters/*.wav + manifest.json — 26 human letter-name recordings, IPA reference, provenance and hashes.
-7. sw.js — yalla-english-2026.11.10.3, coherent cache-first shell including all current recordings.
+7. sw.js — yalla-english-2026.11.10.4, coherent cache-first shell including all current recordings.
 8. review/checks.cjs, review/audio-checks.cjs, review/worker-checks.cjs — Node regression checks.
 9. js/human-audio.js and audio/human/manifest.json — current human recordings and attribution; loaded before audio.js.
 10. audio-review.html — review of all 425 audio items, exportable results. No automatic human approval.
@@ -88,7 +88,7 @@ Modals make the app background inert, trap keyboard focus, and restore it on clo
 
 ## PWA update contract
 
-CACHE = yalla-english-2026.11.10.3. Cache-first keeps runtime versions together. A waiting worker activates only after the explicit update button or after old tabs close. The button posts ACTIVATE_UPDATE; controllerchange reloads that tab. No silent lesson interruption. Delete only cache names starting with yalla-english-. Never substitute HTML for missing JS/CSS/audio or intercept foreign origins.
+CACHE = yalla-english-2026.11.10.4. Cache-first keeps runtime versions together. A waiting worker activates only after the explicit update button or after old tabs close. The button posts ACTIVATE_UPDATE; controllerchange reloads that tab. No silent lesson interruption. Delete only cache names starting with yalla-english-. Never substitute HTML for missing JS/CSS/audio or intercept foreign origins.
 
 After runtime edits, bump CACHE, js/version.js and version.json together, and include new runtime files in FILES. Profile has version/check-update controls. Never clear site storage as an update procedure: that deletes progress.
 

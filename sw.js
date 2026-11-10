@@ -3,7 +3,7 @@
  * Strategy: versioned cache-first app shell; activate updates after old tabs close.
  * When you add new files, add them to FILES and bump CACHE.
  */
-const CACHE = 'yalla-english-2026.11.10.3';
+const CACHE = 'yalla-english-2026.11.10.4';
 const FILES = [
   './',
   './index.html',
@@ -242,7 +242,11 @@ self.addEventListener('message', e => {
 });
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(FILES)));
+  // Bypass the browser's HTTP cache, which can still hold the previous release
+  // after GitHub Pages publishes. A new cache name alone does not do this.
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(FILES.map(path =>
+    new Request(new URL(path, self.registration.scope), {cache:'reload'})
+  ))));
 });
 
 self.addEventListener('activate', (e) => {
