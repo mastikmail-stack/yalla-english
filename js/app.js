@@ -264,7 +264,7 @@
   // The application and the audio review page use the exact same playback engine.
   function speak(text, slow = false) {
     return window.YallaAudio.play(text, {slow, allowDeviceVoice:state.settings.deviceVoice, onError:kind => toast(kind === 'recording'
-      ? 'הקלטת האות לא נטענה. נסו שוב או בדקו את החיבור.'
+      ? 'ההקלטה לא נטענה. נסו שוב או בדקו את החיבור.'
       : kind === 'missing-recording' ? 'ההקלטה האנושית לפריט הזה עדיין בהכנה. אפשר להמשיך בתרגול החזותי, או לאפשר קול מכשיר בפרופיל.'
       : kind === 'voice' ? 'לא נמצא קול באנגלית במכשיר. שמות האותיות זמינים בהקלטה; למילים אפשר לעבור לתרגיל חזותי.'
       : 'ההקראה אינה זמינה כרגע. אפשר לעבור לתרגיל חזותי.')});
@@ -1157,7 +1157,7 @@
         <b>2. מילים קלות</b> – מילים קצרות שקל לקרוא ולכתוב, כמו <bdi dir="ltr">cat</bdi> ו-<bdi dir="ltr">dog</bdi>.<br>
         <b>3. משפטים</b> – לאט לאט בונים משפטים ומדברים.
       </div>
-      <div class="tip-box">🔊 הגבירו את הצליל – האפליקציה מקריאה כל מילה באנגלית. אפשר ללחוץ על 🔊 כדי לשמוע שוב, ועל 🐢 כדי לשמוע לאט.</div>
+      <div class="tip-box">🔊 לחצו על 🔊 כדי לשמוע הקלטה, ועל 🐢 כדי לשמוע לאט. חלק מההקלטות עדיין בהכנה; אפשר להמשיך ללמוד גם בתרגילים החזותיים.</div>
       <div class="tip-box">⏱️ מספיק 5–10 דקות ביום. כל יום שלומדים מגדיל את הרצף 🔥</div>
       <div class="actions"><button class="btn primary block" data-action="choose-level">בוחרים מאיפה להתחיל</button><button class="btn ghost block" data-action="set-level" data-level="zero">להתחיל מאפס</button></div>`);
   }
