@@ -79,10 +79,11 @@
     welcomed: false,
     startLessonId: 'ual1',
     levelId: 'zero',
-    settings: { sound: true, autoSpeak: true, deviceVoice: false, vibrate: true, unlimitedHearts: true, dailyGoal: 20, theme: 'auto' }
+    settings: { sound: true, autoSpeak: true, deviceVoice: false, vibrate: true, unlimitedHearts: true, dailyGoal: 20, theme: 'auto', voice: window.YallaAudio.currentVoice() }
   };
 
   let state = load();
+  window.YallaAudio.setVoice(state.settings.voice);
 
   function cleanState(s) {
     if (!s || typeof s !== 'object' || Array.isArray(s)) throw new Error('Invalid progress');
@@ -110,6 +111,7 @@
     ['sound','autoSpeak','deviceVoice','vibrate','unlimitedHearts'].forEach(k => { if (typeof settings[k] === 'boolean') result.settings[k] = settings[k]; });
     if ([10,20,30,50].includes(settings.dailyGoal)) result.settings.dailyGoal = settings.dailyGoal;
     if (['auto','light','dark'].includes(settings.theme)) result.settings.theme = settings.theme;
+    if (window.YallaAudio.voices().some(v => v.key === settings.voice)) result.settings.voice = settings.voice;
     return result;
   }
 
@@ -265,7 +267,7 @@
   function speak(text, slow = false) {
     return window.YallaAudio.play(text, {slow, allowDeviceVoice:state.settings.deviceVoice, onError:kind => toast(kind === 'recording'
       ? 'ההקלטה לא נטענה. נסו שוב או בדקו את החיבור.'
-      : kind === 'missing-recording' ? 'ההקלטה האנושית לפריט הזה עדיין בהכנה. אפשר להמשיך בתרגול החזותי, או לאפשר קול מכשיר בפרופיל.'
+      : kind === 'missing-recording' ? 'ההקלטה לפריט הזה עדיין בהכנה בקול שבחרתם. אפשר להמשיך בתרגול החזותי, או לבחור קול אחר בפרופיל.'
       : kind === 'voice' ? 'לא נמצא קול באנגלית במכשיר. שמות האותיות זמינים בהקלטה; למילים אפשר לעבור לתרגיל חזותי.'
       : 'ההקראה אינה זמינה כרגע. אפשר לעבור לתרגיל חזותי.')});
   }
@@ -1115,6 +1117,14 @@
       <div class="card"><h3>🏆 הישגים</h3><div class="ach-grid" style="margin-top:10px">
         ${ACHIEVEMENTS.map((a) => `<div class="ach ${state.achievements.includes(a.id) ? '' : 'locked'}"><div class="ico">${a.icon}</div><div class="t">${esc(a.title)}</div><div class="d">${esc(a.desc)}</div></div>`).join('')}
       </div></div>
+      <div class="card"><h3>🗣️ הקול שמקריא את האנגלית</h3>
+        <p>אותו קול בכל השיעורים, בתרגול ובבדיקת השמע. אפשר להחליף בכל רגע.</p>
+        <div class="voice-options">${window.YallaAudio.voices().map(v => `<div class="voice-option ${state.settings.voice === v.key ? 'active' : ''}">
+          <button class="chip ${state.settings.voice === v.key ? 'active' : ''}" data-action="set-voice" data-voice="${esc(v.key)}" aria-pressed="${state.settings.voice === v.key}">${esc(v.label)}</button>
+          <button class="speak-sm" data-action="preview-voice" data-voice="${esc(v.key)}" aria-label="השמעת דוגמה של ${esc(v.label)}">🔊</button>
+          ${v.complete ? '' : `<span class="s-desc">בהכנה: <bdi dir="ltr">${v.count}/${v.total}</bdi> הקלטות</span>`}
+        </div>`).join('')}</div>
+      </div>
       <div class="card"><h3>⚙️ הגדרות</h3>
         ${sw('sound', 'צלילים', 'צליל לתשובה נכונה ושגויה')}
         ${sw('autoSpeak', 'הקראה אוטומטית', 'להשמיע את המילים באנגלית אוטומטית')}
@@ -1157,7 +1167,7 @@
         <b>2. מילים קלות</b> – מילים קצרות שקל לקרוא ולכתוב, כמו <bdi dir="ltr">cat</bdi> ו-<bdi dir="ltr">dog</bdi>.<br>
         <b>3. משפטים</b> – לאט לאט בונים משפטים ומדברים.
       </div>
-      <div class="tip-box">🔊 לחצו על 🔊 כדי לשמוע הקלטה, ועל 🐢 כדי לשמוע לאט. חלק מההקלטות עדיין בהכנה; אפשר להמשיך ללמוד גם בתרגילים החזותיים.</div>
+      <div class="tip-box">🔊 לחצו על 🔊 כדי לשמוע הקלטה, ועל 🐢 כדי לשמוע לאט. כל האנגלית מוקראת בקול אחיד; אפשר לבחור קול נשי או גברי בפרופיל.</div>
       <div class="tip-box">⏱️ מספיק 5–10 דקות ביום. כל יום שלומדים מגדיל את הרצף 🔥</div>
       <div class="actions"><button class="btn primary block" data-action="choose-level">בוחרים מאיפה להתחיל</button><button class="btn ghost block" data-action="set-level" data-level="zero">להתחיל מאפס</button></div>`);
   }
@@ -1357,6 +1367,16 @@
     'streak-info': openStreakModal,
     'set-goal': (d) => { state.settings.dailyGoal = +d.goal; save(); render(); },
     'set-theme': (d) => { state.settings.theme = d.theme; save(); render(); },
+    'set-voice': (d) => {
+      state.settings.voice = window.YallaAudio.setVoice(d.voice);
+      save(); render();
+      const v = window.YallaAudio.voices().find(x => x.key === state.settings.voice);
+      toast(v ? 'הקול הוחלף: ' + v.label : 'הקול לא זמין');
+      speak('Hello');
+    },
+    'preview-voice': (d) => {
+      window.YallaAudio.play('Hello', { voice: d.voice, onError: () => toast('הדוגמה של הקול הזה עדיין לא הוקלטה.') });
+    },
     install: async () => {
       if (!installPrompt) return;
       installPrompt.prompt();

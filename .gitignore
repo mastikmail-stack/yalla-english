@@ -16,3 +16,7 @@ review/generate-letter-audio.ps1
 __pycache__/
 .env
 .env.*
+
+# Local audio review reports (exported from audio-review.html)
+yalla-audio-review-*.json
+review/audio-candidates/

@@ -81,3 +81,8 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* Voice picker (profile) */
+.voice-options { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+.voice-option { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.voice-option .chip { flex: 1; min-width: 0; text-align: start; }

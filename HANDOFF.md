@@ -1,6 +1,6 @@
 # HANDOFF — Yalla English (current, 2026-11-10)
 
-Read this file before editing. Current release: 2026.11.10.4. Read AUDIO_QA_REPORT_HE.md and CLAUDE_ELEVENLABS_HANDOFF_HE.md for the latest user decision. REVIEW_REPORT_HE.md describes the earlier curriculum review. Original backups exist locally only and are excluded from Git.
+Read this file before editing. Current release: 2026.11.10.6 (ElevenLabs narration in two voices). Read AUDIO_QA_REPORT_HE.md and CLAUDE_ELEVENLABS_HANDOFF_HE.md for the latest user decision. REVIEW_REPORT_HE.md describes the earlier curriculum review. Original backups exist locally only and are excluded from Git.
 
 ## Product and constraints
 
@@ -21,16 +21,16 @@ The app is static HTML/CSS/classic JavaScript, with no framework, npm or build r
 
 1. js/data.js — original 28 lessons, corrected starter phrases and selected tips. window.COURSE.
 2. js/learning.js — inserts 4 phonics lessons (up) and 4 grammar lessons (uf), sets explicit unit.stage, defines LEARNING_LEVELS and PLACEMENT_QUESTIONS.
-3. js/audio.js — immutable A–Z -> WAV mapping; stops previous playback and suppresses stale playback failures.
+3. js/voice-audio.js (generated) + js/audio.js — selected-voice text -> MP3 map; stops previous playback, suppresses stale events, never crosses voices.
 4. js/app.js — course indexing, validated local state, audio orchestration, grading, lesson generators/renderers, sessions, UI and events.
 5. css/style.css + css/learning.css — original styles plus current learning UI and accessibility improvements.
 6. audio/letters/*.wav + manifest.json — 26 human letter-name recordings, IPA reference, provenance and hashes.
 7. sw.js — yalla-english-2026.11.10.4, coherent cache-first shell including all current recordings.
 8. review/checks.cjs, review/audio-checks.cjs, review/worker-checks.cjs — Node regression checks.
-9. js/human-audio.js and audio/human/manifest.json — current human recordings and attribution; loaded before audio.js.
+9. audio/voices/<bella|eric>/*.mp3 + manifest.json — the narration (425 items per voice). js/human-audio.js, audio/human and audio/letters are earlier recordings kept for provenance only; they are not loaded or cached.
 10. audio-review.html — review of all 425 audio items, exportable results. No automatic human approval.
 11. js/version.js, version.json, js/updates.js — visible build, explicit update application without deleting learner data.
-12. audio/production/utterances.json — exact recording brief for Claude's two-voice ElevenLabs production; not implemented yet.
+12. audio/production/utterances.json — exact recording brief (425 items). review/generate-elevenlabs.cjs produces it per voice; review/voices.config.json holds voice/model/settings and per-letter overrides chosen by ear; review/build-voice-map.cjs regenerates js/voice-audio.js and the sw.js audio list.
 
 ## Current curriculum
 
@@ -46,17 +46,19 @@ Each unit has stage: letters, starter, guided, or independent. Generators MUST u
 
 All original lesson IDs remain unchanged. Original progress survives. Newly inserted bridge lessons may become the next uncompleted lesson; users can choose a later starting point without losing completions.
 
-## Letter audio: critical regression area
+## Audio: ElevenLabs narration (critical regression area)
 
-The user reported A sounded like I and E sounded like F. Original aliases ay/ee/ef have been removed. Never reintroduce browser pronunciation guesses for isolated letter names.
+All playback goes through YallaAudio in js/audio.js (lessons, practice, profile preview and audio-review.html). Two voices, both ElevenLabs premade voices: bella (Bella, female, default) and eric (Eric, male). The choice is settings.voice in yallaEnglish.v1 and is chosen in Profile; switching stops playback. Each voice has 425/425 items as MP3 (mp3_44100_64), about 5 MB per voice; both are precached by sw.js for offline use.
 
-speak() calls shared YallaAudio.play(). Single uppercase A–Z uses audio/letters/X.wav. Other text resolves against js/human-audio.js. Letter I and pronoun I share the spoken form but keep separate LEARNING STATS.
+A missing item in the selected voice reports missing-recording. It never plays the other voice or the old human/letter files. Single capital letters (A–Z and the pronoun I) never use the device speech engine. The device voice stays opt-in (settings.deviceVoice) for non-letter text only.
 
-A = /eɪ/, E = /iː/, F = /ɛf/, I = /aɪ/. Zira recordings were rejected as robotic and replaced with human recordings. Do not regenerate Zira files. The user wants Claude to use their existing ElevenLabs access for two consistent voices; see the dedicated handoff. No ElevenLabs generation or voice selector exists yet.
+Letter names: the default text sent is "X." (full stop, so it is read as a name). Human listening on 2026-11-10 found G/H/I/W/Y misread on their own, so the generator sends Gee./Aitch./Eye./Double-you./Why. for those. G (both voices) and Z, W (Eric) were then chosen by ear from alternative takes and are pinned as overrides in review/voices.config.json (G = "G." on eleven_multilingual_v2). Never reintroduce browser TTS aliases for letters. Do not regenerate the 26 letters without a new listening pass.
 
-Stop both existing TTS and recorded audio before new speech, moving exercises, leaving a lesson, or hiding the app. Missing letter files show an error and do not fall back to ambiguous letter TTS. Update the service-worker cache version whenever recordings change.
+File names include the first 8 hex chars of the content hash (<assetId>-<sha8>.mp3). A replaced take therefore gets a new URL, and audio-review.html treats a mark as valid only for the exact file that was heard. Review results are stored per build AND per voice.
 
-Interim coverage: 235/425 catalog items have recordings; 190 remain missing. Browser TTS fallback is OFF by default (settings.deviceVoice=false); the user can explicitly enable it in Profile. Missing recordings never silently use another voice. Listening questions without speech become visual exercises. All content remains. Sound effects and automatic pronunciation are separate. No speech recognition/scoring exists.
+To regenerate: set ELEVENLABS_API_KEY in the environment (never in the repo or chat), then node review/generate-elevenlabs.cjs [--voice bella|eric] [--only letter|word|sentence] [--ids ...] [--force]. It is resumable and skips items whose file, hash, text and model match. Afterwards bump the version (js/version.js, version.json, sw.js CACHE). audio-checks.cjs refuses to pass unless both voices are complete (ALLOW_INCOMPLETE_VOICES=1 only for local work).
+
+Human listening status (owner, 2026-11-10): all 26 letters in Bella and in Eric (after the chosen takes). Words and sentences have NOT been listened to yet. A valid hashed MP3 is not a pronunciation check.
 
 ## State and progress
 
@@ -88,7 +90,7 @@ Modals make the app background inert, trap keyboard focus, and restore it on clo
 
 ## PWA update contract
 
-CACHE = yalla-english-2026.11.10.4. Cache-first keeps runtime versions together. A waiting worker activates only after the explicit update button or after old tabs close. The button posts ACTIVATE_UPDATE; controllerchange reloads that tab. No silent lesson interruption. Delete only cache names starting with yalla-english-. Never substitute HTML for missing JS/CSS/audio or intercept foreign origins.
+CACHE = yalla-english-2026.11.10.6. Cache-first keeps runtime versions together. A waiting worker activates only after the explicit update button or after old tabs close. The button posts ACTIVATE_UPDATE; controllerchange reloads that tab. No silent lesson interruption. Delete only cache names starting with yalla-english-. Never substitute HTML for missing JS/CSS/audio or intercept foreign origins.
 
 After runtime edits, bump CACHE, js/version.js and version.json together, and include new runtime files in FILES. Profile has version/check-update controls. Never clear site storage as an update procedure: that deletes progress.
 

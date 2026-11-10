@@ -16,7 +16,7 @@ function context(saved) {
     navigator:{userAgent:'Test'}, location:{protocol:'file:'},
     document:{querySelector: s => elements.get(s) || null, querySelectorAll:()=>[],addEventListener(){},documentElement:{removeAttribute(){},setAttribute(){}},activeElement:null},
     matchMedia:()=>({matches:false}),addEventListener(){},scrollTo(){},
-    YallaAudio:{stop(){},playLetter(){},play(){},recording(){return 'test.wav';},voice(){return null;}}
+    YallaAudio:{stop(){},playLetter(){},play(){},recording(){return 'test.mp3';},voice(){return null;},currentVoice(){return 'bella';},setVoice(k){return k;},voices(){return [{key:'bella',label:'Bella',complete:true,count:1,total:1},{key:'eric',label:'Eric',complete:true,count:1,total:1}];}}
   };
   ctx.window = ctx;
   vm.createContext(ctx);
@@ -143,17 +143,32 @@ test('all 26 immutable audio mappings match valid distinct WAVs and explicit pho
   const phones=Object.fromEntries(manifest.letters.map(l=>[l.letter,l.ipa]));
   assert.equal(phones.A,'eɪ');assert.equal(phones.E,'iː');assert.equal(phones.F,'ɛf');assert.equal(phones.I,'aɪ');
 });
-test('audio clicks use the requested file and stop the previous file', () => {
+test('audio engine plays the selected voice, stops the previous clip and never crosses voices', () => {
   const played=[];
   class Audio {constructor(src){this.src=src;played.push(this);} play(){return Promise.resolve();}pause(){this.paused=true;}}
-  const audioCtx={window:{},Audio};vm.createContext(audioCtx);vm.runInContext(fs.readFileSync('js/audio.js','utf8'),audioCtx);
-  for(const letter of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') {audioCtx.window.YallaAudio.playLetter(letter,false);assert.equal(played.at(-1).src,`audio/letters/${letter}.wav`);}
+  const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const files={bella:Object.fromEntries(letters.map(l=>[l,'audio/voices/bella/'+l+'.mp3']).concat([['hello','audio/voices/bella/hello.mp3']])),
+    eric:Object.fromEntries(letters.filter(l=>l!=='Q').map(l=>[l,'audio/voices/eric/'+l+'.mp3']))};
+  const utter=[];
+  const audioCtx={Audio,SpeechSynthesisUtterance:class{constructor(t){this.text=t;}},speechSynthesis:{getVoices:()=>[{name:'T',lang:'en-US'}],cancel(){},speak(u){utter.push(u);}}};
+  audioCtx.window=audioCtx;audioCtx.YALLA_VOICES={default:'bella',voices:[{key:'bella'},{key:'eric'}],files};
+  vm.createContext(audioCtx);vm.runInContext(fs.readFileSync('js/audio.js','utf8'),audioCtx);
+  const A=audioCtx.window.YallaAudio;
+  assert.equal(A.currentVoice(),'bella');
+  for(const letter of letters) {A.playLetter(letter,false);assert.equal(played.at(-1).src,'audio/voices/bella/'+letter+'.mp3');}
   assert(played.slice(0,-1).every(a=>a.paused));
-  audioCtx.window.YallaAudio.stop();assert(played.at(-1).paused);
-  assert.equal(audioCtx.window.YallaAudio.playLetter('unknown',false),false);
+  A.stop();assert(played.at(-1).paused);
+  assert.equal(A.playLetter('unknown',false),false);
+  assert.equal(A.setVoice('nobody'),'bella');
+  assert.equal(A.setVoice('eric'),'eric');
+  assert(played.at(-1).paused,'switching voice stops playback');
+  assert.equal(A.recording('Q'),null,'missing item in eric must not borrow bella');
+  let kinds=[];assert.equal(A.play('Q',{allowDeviceVoice:true,onError:k=>kinds.push(k)}),false);assert.deepEqual(kinds,['missing-recording']);assert.equal(utter.length,0,'letters never use device TTS');
+  assert.equal(A.play('hello',{onError:k=>kinds.push(k)}),false);assert.equal(kinds.at(-1),'missing-recording');
+  assert(A.play('hello',{voice:'bella'}));assert.equal(played.at(-1).src,'audio/voices/bella/hello.mp3');assert.equal(A.currentVoice(),'eric','preview does not change the selection');
   let errors=0;
-  audioCtx.window.YallaAudio.playLetter('A',false,()=>errors++);const previous=played.at(-1);
-  audioCtx.window.YallaAudio.playLetter('E',false,()=>errors++);previous.onerror();assert.equal(errors,0);
+  A.playLetter('A',false,()=>errors++);const previous=played.at(-1);
+  A.playLetter('E',false,()=>errors++);previous.onerror();assert.equal(errors,0);
   played.at(-1).onerror();played.at(-1).onerror();assert.equal(errors,1);
 });
 test('listening requires the words heard; translation accepts defined synonyms', () => {
@@ -174,6 +189,9 @@ test('service worker only removes its own caches and never substitutes HTML for 
   const worker={self:{addEventListener(){}},URL};vm.createContext(worker);
   vm.runInContext(source+'\nglobalThis.files = FILES;',worker);
   for(const file of worker.files) if(file!=='./') assert(fs.existsSync(file),file);
-  assert.equal(worker.files.filter(f=>f.endsWith('.wav')).length,26);
+  const voiceMap={};const vctx={window:voiceMap};vm.createContext(vctx);vm.runInContext(fs.readFileSync('js/voice-audio.js','utf8'),vctx);
+  const expected=new Set(Object.values(vctx.window.YALLA_VOICES.files).flatMap(m=>Object.values(m)).map(f=>'./'+f));
+  for(const f of expected) assert(worker.files.includes(f),'voice audio must be cached offline: '+f);
+  assert(!worker.files.some(f=>f.startsWith('./audio/human/') || f.startsWith('./audio/letters/')),'retired recordings are not precached');
 });
 console.log(`\n${passed} groups passed; ${lessons.length * 100} generated lessons checked.`);

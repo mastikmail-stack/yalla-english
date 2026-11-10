@@ -11,9 +11,11 @@
     <a href="./">← חזרה ללימוד</a>
     <h1>בודקים שהשמע נכון</h1>
     <p>הבדיקה משתמשת באותם תכנים ובאותו מנגנון השמעה של השיעורים. האזינו והשוו למה שכתוב. טעינת קובץ אינה אישור שההגייה נכונה.</p>
-    <p>האפליקציה משמיעה הקלטות אנושיות. פריט שאין עבורו הקלטה מסומן כחסר, ואינו מוחלף בקול ממוחשב בלי בחירה מפורשת. התעתיק בעברית הוא עזרה משוערת בלבד.</p>
+    <p>האפליקציה משמיעה הקלטות שהופקו ב־ElevenLabs בשני קולות. בודקים כל קול בנפרד: סימון בקול אחד אינו מאשר את הקול השני. פריט בלי הקלטה מסומן כחסר ואינו מוחלף בקול אחר. התעתיק בעברית הוא עזרה משוערת בלבד.</p>
     <p><a href="audio-credits.html">מקורות ההקלטות והרישיונות</a></p>
     <p id="build"></p>
+    <label for="voice">איזה קול בודקים?</label>
+    <select id="voice"></select>
     <label for="group">מה בודקים?</label>
     <select id="group"><option value="letter">שמות האותיות A–Z</option><option value="word">כל המילים והדוגמאות</option><option value="sentence">כל המשפטים</option><option value="all">כל התוכן</option><option value="missing">הקלטות שעדיין חסרות</option><option value="fail">פריטים שסומנו כשגויים</option></select>
     <label for="item">בחירת פריט</label><select id="item"></select>
@@ -27,6 +29,6 @@
   </main>
   <div id="update-root"></div>
   <script src="js/version.js"></script><script src="js/data.js"></script><script src="js/learning.js"></script>
-  <script src="js/human-audio.js"></script><script src="js/audio.js"></script><script src="js/audio-catalog.js"></script><script src="js/audio-review.js"></script><script src="js/updates.js"></script>
+  <script src="js/voice-audio.js"></script><script src="js/audio.js"></script><script src="js/audio-catalog.js"></script><script src="js/audio-review.js"></script><script src="js/updates.js"></script>
 </body>
 </html>

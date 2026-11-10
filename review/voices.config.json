@@ -1,0 +1,87 @@
+[
+  {
+    "key": "bella",
+    "label": "בלה (קול נשי)",
+    "gender": "female",
+    "voiceName": "Bella - Professional, Bright, Warm",
+    "voiceId": "hpp4J3VqNfWAUOO0d1Us",
+    "category": "premade",
+    "modelId": "eleven_v4",
+    "settings": {
+      "stability": 0.6,
+      "similarity_boost": 0.8,
+      "style": 0,
+      "use_speaker_boost": true
+    },
+    "seed": 4242,
+    "overrides": {
+      "G": {
+        "text": "G.",
+        "modelId": "eleven_multilingual_v2",
+        "settings": {
+          "stability": 0.85,
+          "similarity_boost": 0.8,
+          "style": 0,
+          "use_speaker_boost": true
+        },
+        "seed": 11,
+        "note": "Chosen by ear on 2026-11-10 from alternative takes"
+      }
+    }
+  },
+  {
+    "key": "eric",
+    "label": "אריק (קול גברי)",
+    "gender": "male",
+    "voiceName": "Eric - Smooth, Trustworthy",
+    "voiceId": "cjVigY5qzO86Huf0OWal",
+    "category": "premade",
+    "modelId": "eleven_v4",
+    "settings": {
+      "stability": 0.6,
+      "similarity_boost": 0.8,
+      "style": 0,
+      "use_speaker_boost": true
+    },
+    "seed": 4242,
+    "overrides": {
+      "G": {
+        "text": "G.",
+        "modelId": "eleven_multilingual_v2",
+        "settings": {
+          "stability": 0.85,
+          "similarity_boost": 0.8,
+          "style": 0,
+          "use_speaker_boost": true
+        },
+        "seed": 11,
+        "note": "Chosen by ear on 2026-11-10 from alternative takes"
+      },
+      "Z": {
+        "text": "Zee.",
+        "modelId": "eleven_v4",
+        "settings": {
+          "stability": 0.85,
+          "similarity_boost": 0.8,
+          "style": 0,
+          "use_speaker_boost": true
+        },
+        "seed": 11,
+        "note": "Chosen by ear on 2026-11-10 from alternative takes"
+      },
+      "W": {
+        "text": "Double-you.",
+        "modelId": "eleven_v4",
+        "settings": {
+          "stability": 0.85,
+          "similarity_boost": 0.8,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 0.85
+        },
+        "seed": 11,
+        "note": "Chosen by ear on 2026-11-10 from alternative takes"
+      }
+    }
+  }
+]

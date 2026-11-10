@@ -6,7 +6,12 @@
   function ready() {
     if (!registration?.waiting) return;
     const root = document.getElementById('update-root');
-    if (root) root.innerHTML = '<div class="update-banner" role="status"><span>גרסה חדשה מוכנה. כדאי לסיים את השיעור ואז לעדכן.</span><button class="btn primary" data-apply-update>עדכון עכשיו</button></div>';
+    // Mention the lesson only when one is actually open (the review page has none).
+    const inLesson = !!window.__yalla?.session;
+    const text = inLesson
+      ? 'גרסה חדשה מוכנה. סיימו קודם את השיעור (עד המסך ״השיעור הושלם!״), ואז לחצו על עדכון.'
+      : 'גרסה חדשה מוכנה. אפשר לעדכן עכשיו; ההתקדמות שלכם נשמרת.';
+    if (root) root.innerHTML = `<div class="update-banner" role="status"><span>${text}</span><button class="btn primary" data-apply-update>עדכון עכשיו</button></div>`;
     status('גרסה חדשה מוכנה. לחצו על ״עדכון עכשיו״.');
   }
   async function check() {
