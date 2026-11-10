@@ -894,24 +894,6 @@
     "currentFile": null
   },
   {
-    "id": "word:I",
-    "type": "word",
-    "text": "I",
-    "meaning": "אני",
-    "hint": "אַיי",
-    "lessons": [
-      {
-        "id": "u1l2",
-        "title": "אני ואתה"
-      }
-    ],
-    "assetId": "7a88e00626ceac1981eb",
-    "expectedIPA": null,
-    "expectedSpokenText": "I",
-    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
-    "currentFile": null
-  },
-  {
     "id": "sentence:I am Dan",
     "type": "sentence",
     "text": "I am Dan",

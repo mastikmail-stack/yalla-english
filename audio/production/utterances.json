@@ -3021,7 +3021,7 @@
       "expectedIPA": null,
       "expectedSpokenText": "I",
       "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
-      "currentFile": null
+      "currentFile": "audio/letters/I.wav"
     },
     {
       "id": "word:you",

@@ -64,5 +64,5 @@ for(const letter of JSON.parse(fs.readFileSync('audio/letters/manifest.json','ut
 const inventory=JSON.parse(fs.readFileSync('audio/production/utterances.json','utf8')).items;
 assert.equal(inventory.length,catalog.length);
 assert.equal(new Set(inventory.map(x=>x.assetId)).size,inventory.length);
-for(const item of catalog) assert(inventory.some(x=>x.id===item.id && x.expectedSpokenText===item.text));
+for(const item of catalog) assert(inventory.some(x=>x.id===item.id && x.expectedSpokenText===item.text && x.currentFile===audio.recording(item.text)));
 console.log(`PASS all ${catalog.length} curriculum audio items in both speeds; human recordings, missing audio, explicit TTS opt-in, cancellation, stale events, English-only voice, provenance/hashes, offline inclusion and release coherence`);

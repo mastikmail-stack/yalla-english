@@ -56,7 +56,7 @@ A = /eɪ/, E = /iː/, F = /ɛf/, I = /aɪ/. Zira recordings were rejected as rob
 
 Stop both existing TTS and recorded audio before new speech, moving exercises, leaving a lesson, or hiding the app. Missing letter files show an error and do not fall back to ambiguous letter TTS. Update the service-worker cache version whenever recordings change.
 
-Interim coverage: 234/425 catalog items have recordings; 191 remain missing. Browser TTS fallback is OFF by default (settings.deviceVoice=false); the user can explicitly enable it in Profile. Missing recordings never silently use another voice. Listening questions without speech become visual exercises. All content remains. Sound effects and automatic pronunciation are separate. No speech recognition/scoring exists.
+Interim coverage: 235/425 catalog items have recordings; 190 remain missing. Browser TTS fallback is OFF by default (settings.deviceVoice=false); the user can explicitly enable it in Profile. Missing recordings never silently use another voice. Listening questions without speech become visual exercises. All content remains. Sound effects and automatic pronunciation are separate. No speech recognition/scoring exists.
 
 ## State and progress
 
