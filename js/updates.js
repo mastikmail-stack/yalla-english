@@ -4,7 +4,8 @@
   let registration, applying = false;
   const status = message => document.querySelectorAll('[data-update-status]').forEach(el => { el.textContent = message; });
   function ready() {
-    if (!registration?.waiting) return;
+    // No controller = first visit: the new worker activates by itself, nothing to offer.
+    if (!registration?.waiting || !navigator.serviceWorker.controller) return;
     const root = document.getElementById('update-root');
     // Mention the lesson only when one is actually open (the review page has none).
     const inLesson = !!window.__yalla?.session;

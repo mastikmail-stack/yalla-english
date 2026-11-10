@@ -3,7 +3,7 @@
  * Strategy: versioned cache-first app shell; activate updates after old tabs close.
  * When you add new files, add them to FILES and bump CACHE.
  */
-const CACHE = 'yalla-english-2026.11.10.6';
+const CACHE = 'yalla-english-2026.11.10.7';
 const FILES = [
   './',
   './index.html',

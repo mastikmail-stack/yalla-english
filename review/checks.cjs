@@ -72,8 +72,43 @@ test('new material is taught before being tested', () => {
       if(e.word) assert(introduced.has(e.word.en));
       if(e.sentence) assert(introduced.has(e.sentence.en));
       for(const w of e.pairs||[]) assert(introduced.has(w.en));
+      for(const it of e.items||[]) assert(introduced.has(it.word.en));
     }
   }
+});
+test('first lessons alternate learning and recall, vary the skill and end with the quick round', () => {
+  for(const l of lessons) for(let run=0;run<30;run++) {
+    const q = app.prepareLesson(l);
+    assert(q.length <= 30, l.id+': too long '+q.length);
+    let studyRun = 0;
+    for(const e of q) { studyRun = e.type==='study' ? studyRun+1 : 0; assert(studyRun<=2, l.id+': more than two introductions in a row'); }
+    q.forEach((e,i) => { if(e.type==='study' && e.word) assert(q.slice(i+1,i+5).some(x=>x.word===e.word), l.id+': '+e.word.en+' is not recalled soon after it is taught'); });
+    const last = q[q.length-1];
+    assert.equal(last.type,'speed');
+    assert(last.items.length>=3 && last.items.every(it => it.truth === (it.shown===it.word) && isFinite(it.word.en.length)));
+    assert(last.items.every(it => it.truth || it.shown.he !== it.word.he), 'false item must show a different meaning');
+    if(l.type!=='letters') assert(new Set(q.filter(e=>e.type!=='study').map(e=>e.type)).size>=6, l.id+': too little variety');
+    for(const e of q.filter(e=>e.type==='listen_image')) {
+      assert(e.options.some(o=>o.en===e.word.en));
+      assert.equal(new Set(e.options.map(o=>o.emoji)).size,e.options.length);
+      assert(!e.options.some(o=>o!==e.word && [['see','sea'],['two','to','too'],['four','for'],['here','hear'],['no','know'],['right','write']].some(g=>g.includes(o.en)&&g.includes(e.word.en))));
+    }
+  }
+});
+test('repeated lessons skip introductions; creator mode unlocks and replays as new without touching progress', () => {
+  const l = lessons.find(x=>x.id==='u1l1'), later = lessons.find(x=>x.id==='u5l4');
+  app.state.completed[l.id]=1;
+  const again = app.prepareLesson(l);
+  assert(!again.some(e=>e.type==='study')); assert.equal(again[again.length-1].type,'speed');
+  assert.equal(app.lessonStatus(later),'locked');
+  app.setCreator({on:true,unlockAll:true,fresh:true});
+  assert.equal(app.lessonStatus(later),'available');
+  assert(app.prepareLesson(l).some(e=>e.type==='study'));
+  app.setCreator({on:false});
+  assert.equal(app.creator.unlockAll,false); assert.equal(app.creator.fresh,false);
+  assert.equal(app.lessonStatus(later),'locked');
+  assert(!('creator' in app.cleanState({creator:{on:true}})));
+  app.state.completed={};
 });
 test('placement does not invent completions/XP; earlier lessons stay available', () => {
   const s=app.state;
@@ -99,7 +134,8 @@ test('all practice modes at every course boundary are valid and deduplicated', (
     for(const kind of ['weak','write','listen','due']) for(let i=0;i<10;i++) {
       const exercises=app.genPractice(kind); assert(exercises.length);
       for(const e of exercises) {
-        assert(e.word||e.sentence||e.pairs);
+        assert(e.word||e.sentence||e.pairs||e.items);
+        for(const it of e.items||[]) for(const w of [it.word,it.shown]) assert(app.state.completed[w.lessonId],`${w.en} is not learned`);
         if(e.pairs) assert.equal(new Set(e.pairs.map(w=>w.en)).size,e.pairs.length);
         for(const w of e.options||[]) assert(app.state.completed[w.lessonId],`${w.en} is not learned`);
       }

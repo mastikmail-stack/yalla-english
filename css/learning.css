@@ -86,3 +86,30 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus
 .voice-options { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
 .voice-option { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .voice-option .chip { flex: 1; min-width: 0; text-align: start; }
+
+/* Quick round (true / false, one tap) */
+.speed-dots { display: flex; justify-content: center; gap: 6px; margin: 6px 0 14px; direction: ltr; }
+.speed-dots i { width: 26px; height: 8px; border-radius: 6px; background: var(--line); }
+.speed-dots i.now { background: var(--blue); }
+.speed-dots i.ok { background: var(--green); }
+.speed-dots i.bad { background: var(--red); }
+.speed-card { border: 2px solid var(--line); border-bottom-width: 5px; border-radius: 24px; padding: 20px 14px; text-align: center; background: var(--card); transition: border-color .15s, background .15s; }
+.speed-en { font-size: 34px; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 10px; direction: ltr; }
+.speed-eq { font-size: 22px; color: var(--muted); margin: 6px 0; }
+.speed-he { font-size: 26px; font-weight: 700; }
+.speed-note { min-height: 24px; margin: 10px 0 0; font-weight: 700; color: var(--red-d); }
+.speed-card.flash-ok { border-color: var(--green); background: var(--green-l); }
+.speed-card.flash-bad { border-color: var(--red); background: var(--red-l); animation: shake .3s; }
+.speed-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
+.speed-actions .btn { min-height: 64px; font-size: 19px; }
+
+/* Results: what was earned and what was learned */
+.xp-parts { color: var(--muted); font-size: 14px; text-align: center; margin: 0; }
+.result-words { width: 100%; text-align: start; }
+.result-words h3 { margin: 0 0 4px; }
+.result-words .chip .he { font-weight: 400; color: var(--muted); }
+
+/* Creator mode */
+.version-line { user-select: none; -webkit-user-select: none; }
+.creator-card { border-style: dashed; }
+.creator-card .btn { margin-top: 10px; }

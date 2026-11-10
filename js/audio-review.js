@@ -3,15 +3,26 @@
   const $ = id => document.getElementById(id);
   const catalog = window.YALLA_AUDIO_CATALOG;
   const build = window.YALLA_BUILD.version;
-  // Results are kept per build AND per voice: approving an item in one voice never approves the other.
+  // Results are kept per voice (approving an item in one voice never approves the other), and a
+  // mark counts only while it names the current recording file (see valid). So an app update that
+  // does not replace a recording keeps the mark; a replaced take must be heard again.
   const voiceKey = () => window.YallaAudio.currentVoice();
-  const key = () => 'yallaEnglish.audioReview.' + build + '.' + voiceKey();
+  const key = () => 'yallaEnglish.audioReview.marks.' + voiceKey();
   try { const pref = localStorage.getItem('yallaEnglish.audioReview.voice'); if (pref) window.YallaAudio.setVoice(pref); } catch { /* ignore */ }
   const esc = value => String(value || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   let results = {}, list = [], index = 0, heard = new Set(), playback = null;
   function loadResults() {
     results = {};
-    try { const saved = JSON.parse(localStorage.getItem(key())); if (saved && typeof saved === 'object' && !Array.isArray(saved)) results = saved; } catch { /* keep review usable */ }
+    try {
+      let raw = localStorage.getItem(key());
+      if (raw === null) {
+        // Marks from builds before 2026.11.10.7 were stored per build: carry over the newest.
+        const old = Object.keys(localStorage).filter(k => k.startsWith('yallaEnglish.audioReview.2') && k.endsWith('.' + voiceKey())).sort().pop();
+        if (old) raw = localStorage.getItem(old);
+      }
+      const saved = JSON.parse(raw);
+      if (saved && typeof saved === 'object' && !Array.isArray(saved)) results = saved;
+    } catch { /* keep review usable */ }
   }
   loadResults();
   $('voice').innerHTML = window.YallaAudio.voices().map(v => `<option value="${esc(v.key)}">${esc(v.label)}${v.complete ? '' : ' — בהכנה ' + v.count + '/' + v.total}</option>`).join('');

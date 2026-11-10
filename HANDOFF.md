@@ -1,6 +1,6 @@
 # HANDOFF — Yalla English (current, 2026-11-10)
 
-Read this file before editing. Current release: 2026.11.10.6 (ElevenLabs narration in two voices). Read AUDIO_QA_REPORT_HE.md and CLAUDE_ELEVENLABS_HANDOFF_HE.md for the latest user decision. REVIEW_REPORT_HE.md describes the earlier curriculum review. Original backups exist locally only and are excluded from Git.
+Read this file before editing. Current release: 2026.11.10.7 (lesson flow redesign + creator mode, on top of the ElevenLabs narration of .6). Read AUDIO_QA_REPORT_HE.md and CLAUDE_ELEVENLABS_HANDOFF_HE.md for the latest user decision. REVIEW_REPORT_HE.md describes the earlier curriculum review. Original backups exist locally only and are excluded from Git.
 
 ## Product and constraints
 
@@ -25,7 +25,7 @@ The app is static HTML/CSS/classic JavaScript, with no framework, npm or build r
 4. js/app.js — course indexing, validated local state, audio orchestration, grading, lesson generators/renderers, sessions, UI and events.
 5. css/style.css + css/learning.css — original styles plus current learning UI and accessibility improvements.
 6. audio/letters/*.wav + manifest.json — 26 human letter-name recordings, IPA reference, provenance and hashes.
-7. sw.js — yalla-english-2026.11.10.4, coherent cache-first shell including all current recordings.
+7. sw.js — yalla-english-2026.11.10.7, coherent cache-first shell including all current recordings.
 8. review/checks.cjs, review/audio-checks.cjs, review/worker-checks.cjs — Node regression checks.
 9. audio/voices/<bella|eric>/*.mp3 + manifest.json — the narration (425 items per voice). js/human-audio.js, audio/human and audio/letters are earlier recordings kept for provenance only; they are not loaded or cached.
 10. audio-review.html — review of all 425 audio items, exportable results. No automatic human approval.
@@ -54,7 +54,7 @@ A missing item in the selected voice reports missing-recording. It never plays t
 
 Letter names: the default text sent is "X." (full stop, so it is read as a name). Human listening on 2026-11-10 found G/H/I/W/Y misread on their own, so the generator sends Gee./Aitch./Eye./Double-you./Why. for those. G (both voices) and Z, W (Eric) were then chosen by ear from alternative takes and are pinned as overrides in review/voices.config.json (G = "G." on eleven_multilingual_v2). Never reintroduce browser TTS aliases for letters. Do not regenerate the 26 letters without a new listening pass.
 
-File names include the first 8 hex chars of the content hash (<assetId>-<sha8>.mp3). A replaced take therefore gets a new URL, and audio-review.html treats a mark as valid only for the exact file that was heard. Review results are stored per build AND per voice.
+File names include the first 8 hex chars of the content hash (<assetId>-<sha8>.mp3). A replaced take therefore gets a new URL, and audio-review.html treats a mark as valid only for the exact file that was heard. Review results are stored per voice (key yallaEnglish.audioReview.marks.<voice>; marks from older per-build keys are carried over once) and stay valid only for the exact recording file.
 
 To regenerate: set ELEVENLABS_API_KEY in the environment (never in the repo or chat), then node review/generate-elevenlabs.cjs [--voice bella|eric] [--only letter|word|sentence] [--ids ...] [--force]. It is resumable and skips items whose file, hash, text and model match. Afterwards bump the version (js/version.js, version.json, sw.js CACHE). audio-checks.cjs refuses to pass unless both voices are complete (ALLOW_INCOMPLETE_VOICES=1 only for local work).
 
@@ -88,15 +88,30 @@ Explanations are authored templates and lesson tips, displayed after errors or e
 
 Modals make the app background inert, trap keyboard focus, and restore it on close. Feedback/toasts announce updates. Reduced-motion preferences disable animations/confetti. Keep all interpolated content escaped; mixed() must isolate English before escaping so apostrophes and punctuation remain inside the English span.
 
+## Lesson flow and creator mode (2026.11.10.7)
+
+The owner found lessons repetitive. Earlier, a first-time lesson showed every word's study card in a row (up to 8 one-tap screens) before any practice. Now genFirstLesson teaches two items, immediately checks each with a different skill (hear -> picture, Hebrew -> English with pictures, English -> Hebrew, hear -> English), then the next two. After the words: match, spell (or type in the independent stage), three sentences each introduced right before use, and a closing quick round. Tests enforce: at most two introductions in a row, every word recalled within the next four screens, at least six exercise types per word lesson, length <= 30 screens, quick round last.
+
+- listen_image: hear the word, tap the picture labelled in Hebrew. Needs no English reading. Only words with a real emoji; distinct emoji per option; homophones are excluded. Without audio it becomes pick_image.
+- speed (quick round): 6 true/false items, one tap each, auto-advance, no Check button. A false item shows another word's meaning. Records each item in wordStats, counts mistakes (no hearts lost). All right = +3 XP. Also closes weak, due and alphabet-only practice.
+- Repeated lessons: genLesson (unchanged) plus the quick round, no introductions.
+- The correct-answer chime rises with the combo; the combo is shown on every screen from 2. The results screen shows the XP breakdown, best combo and the lesson's words with playback.
+
+Creator mode is for the app owner. Turn it on with ?creator=1 or five quick taps on the version line in the profile. Its flags live in yallaEnglish.creator, never inside yallaEnglish.v1, and cleanState never reads them.
+- Start over as a new user: resets progress (keeps the voice), so the welcome and level picker appear. The first snapshot of the real progress goes to yallaEnglish.creatorSnapshot and is never overwritten by later resets. "Return to saved progress" restores it and deletes it.
+- All lessons open: lessons that would be locked show as available.
+- Every lesson as the first time: completed lessons replay with introductions.
+Everything is per device and per browser storage. On iOS, the home-screen app has storage separate from Safari.
+
 ## PWA update contract
 
-CACHE = yalla-english-2026.11.10.6. Cache-first keeps runtime versions together. A waiting worker activates only after the explicit update button or after old tabs close. The button posts ACTIVATE_UPDATE; controllerchange reloads that tab. No silent lesson interruption. Delete only cache names starting with yalla-english-. Never substitute HTML for missing JS/CSS/audio or intercept foreign origins.
+CACHE = yalla-english-2026.11.10.7. Cache-first keeps runtime versions together. A waiting worker activates only after the explicit update button or after old tabs close. The button posts ACTIVATE_UPDATE; controllerchange reloads that tab. No silent lesson interruption. Delete only cache names starting with yalla-english-. Never substitute HTML for missing JS/CSS/audio or intercept foreign origins.
 
 After runtime edits, bump CACHE, js/version.js and version.json together, and include new runtime files in FILES. Profile has version/check-update controls. Never clear site storage as an update procedure: that deletes progress.
 
 ## Verification completed in this review
 
-- node review/checks.cjs: 16 groups; 100 generations x 36 lessons; target coverage, early typing, canonical/alternative answers, grammar errors, tile multiplicities, practice boundaries, legacy state, level routing, review timing, audio mapping/hash checks and RTL escaping.
+- node review/checks.cjs: 18 groups (as of .7); 100 generations x 36 lessons; target coverage, early typing, canonical/alternative answers, grammar errors, tile multiplicities, practice boundaries, legacy state, level routing, review timing, audio mapping/hash checks and RTL escaping.
 - node review/worker-checks.cjs: simulated offline routing, cached audio, missing media, navigation fallback and unrelated-cache preservation.
 - Browser at 375x812: full alphabet lesson with intentional choice and matching errors -> 88%, 10 XP, no perfect bonus; a full SH/CH lesson -> 100%, 15 XP.
 - All 12 placement questions with an intentional phonics gap -> conservative recommendation; accepting it preserved XP/completions.

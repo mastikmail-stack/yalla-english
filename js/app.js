@@ -24,6 +24,7 @@
   const XP_LESSON = 10;
   const XP_PERFECT_BONUS = 5;
   const XP_PRACTICE = 10;
+  const XP_SPEED_BONUS = 3;
   const MASCOT = '🦊';
   const PRAISE = ['מצוין!', 'כל הכבוד!', 'יפה מאוד!', 'נהדר!', 'מעולה!', 'אלופים!', 'בול!'];
   const WRONG = ['לא בדיוק...', 'כמעט!', 'אופס...', 'לא נורא, ממשיכים!'];
@@ -84,6 +85,40 @@
 
   let state = load();
   window.YallaAudio.setVoice(state.settings.voice);
+
+  /* Creator mode: tools for the person who builds the app (start over as a new learner,
+     open every lesson, replay lessons as first-time). Kept in its own keys, never inside
+     the learner's progress, so old saves and backups are unaffected. Turn on with
+     ?creator=1 or five taps on the version line in the profile. */
+  const CREATOR_KEY = 'yallaEnglish.creator';
+  const SNAPSHOT_KEY = 'yallaEnglish.creatorSnapshot';
+  function loadCreator() {
+    const c = { on: false, unlockAll: false, fresh: false };
+    try {
+      const raw = JSON.parse(localStorage.getItem(CREATOR_KEY) || 'null');
+      if (raw && typeof raw === 'object') Object.keys(c).forEach(k => { if (raw[k] === true) c[k] = true; });
+    } catch (e) { /* ignore */ }
+    if (!c.on) { c.unlockAll = false; c.fresh = false; }
+    return c;
+  }
+  let creator = loadCreator();
+  function setCreator(patch) {
+    creator = Object.assign({}, creator, patch);
+    if (!creator.on) { creator.unlockAll = false; creator.fresh = false; }
+    try { localStorage.setItem(CREATOR_KEY, JSON.stringify(creator)); } catch (e) { /* ignore */ }
+  }
+  function readSnapshot() {
+    try {
+      const s = JSON.parse(localStorage.getItem(SNAPSHOT_KEY) || 'null');
+      return s && typeof s.savedAt === 'number' && s.state ? s : null;
+    } catch (e) { return null; }
+  }
+  try {
+    if (/[?&]creator=1\b/.test(location.search || '')) {
+      setCreator({ on: true });
+      history.replaceState(null, '', location.pathname + location.hash);
+    }
+  } catch (e) { /* ignore */ }
 
   function cleanState(s) {
     if (!s || typeof s !== 'object' || Array.isArray(s)) throw new Error('Invalid progress');
@@ -196,7 +231,8 @@
     if (l.order < startOrder()) return 'available';
     const cur = currentLessonIndex();
     if (l.order === cur) return 'current';
-    return l.order < cur ? 'done' : 'locked';
+    if (l.order < cur) return 'done';
+    return creator.unlockAll ? 'available' : 'locked';
   }
   function wordStrength(w) {
     const s = state.wordStats[wordKey(w)] || { c: 0, w: 0 };
@@ -255,7 +291,8 @@
     } catch (e) { /* no audio */ }
   }
   const sfx = {
-    correct: () => tone([660, 990], 0.16, 'sine', 0.1),
+    // The "correct" chime climbs a little with every answer in a row.
+    correct: (combo = 0) => { const k = 1 + Math.min(combo, 8) * 0.04; tone([660 * k, 990 * k], 0.16, 'sine', 0.1); },
     wrong: () => tone([240, 180], 0.22, 'square', 0.13, 0.05),
     tap: () => tone([520], 0.05, 'sine', 0, 0.04),
     match: () => tone([700, 940], 0.08, 'sine', 0.06, 0.08),
@@ -405,6 +442,63 @@
     return { type: listen ? 'listen_build' : 'build', sentence: s, tiles: shuffle(ans.concat(shuffle(extra).slice(0, nExtra))) };
   }
 
+  /** Hear a word, tap its picture. No English reading needed: sound -> meaning. */
+  const hasPic = (w) => !isLetter(w) && !!w.emoji && w.emoji !== '💬';
+  const soundsAlike = (a, b) => homophones.some(group => group.includes(a.en) && group.includes(b.en));
+  function exListenImage(w, pW) {
+    if (!hasPic(w)) return exListenPick(w, pW);
+    const opts = [w];
+    for (const pool of pW) for (const x of shuffle(pool)) {
+      if (opts.length >= 4) break;
+      if (!hasPic(x) || soundsAlike(w, x) || opts.some(o => o.en === x.en || o.he === x.he || o.emoji === x.emoji)) continue;
+      opts.push(x);
+    }
+    return opts.length < 3 ? exListenPick(w, pW) : { type: 'listen_image', word: w, options: shuffle(opts) };
+  }
+
+  /** Quick true/false round: retrieval of the session's words, answered with one tap each. */
+  function exSpeed(words, pool, n = 6) {
+    const targets = sample(uniqueWords(words), Math.min(n, uniqueWords(words).length));
+    if (targets.length < 3) return null;
+    return { type: 'speed', items: targets.map((w) => {
+      const other = Math.random() < 0.5 ? distractorWords(w, [pool], 1)[0] : null;
+      return { word: w, shown: other || w, truth: !other };
+    }) };
+  }
+
+  /**
+   * First time through a lesson: learn two items, practise them at once, then the next two
+   * (each check uses a different skill). Then a game, a few sentences and the quick round.
+   * Shorter gaps between seeing and recalling help memory and keep the pace lively.
+   */
+  function genFirstLesson(l) {
+    const previous = LESSONS.filter(x => x.order < l.order);
+    const prevWords = previous.flatMap(x => x.words);
+    const letters = l.type === 'letters';
+    const checks = letters
+      ? [(w, p) => exListenPick(w, p), (w, p) => exEnHe(w, p)]
+      : [(w, p) => exListenImage(w, p), (w, p) => exPickImage(w, p, true), (w, p) => exEnHe(w, p), (w, p) => exListenPick(w, p)];
+    const queue = [], introduced = [];
+    let k = 0;
+    for (let i = 0; i < l.words.length; i += 2) {
+      const chunk = l.words.slice(i, i + 2);
+      chunk.forEach(word => { queue.push({ type: 'study', word }); introduced.push(word); });
+      // Options come first from what was just learned, so the choice is a real distinction.
+      for (const word of shuffle(chunk)) queue.push(checks[k++ % checks.length](word, [introduced, l.words, prevWords]));
+    }
+    if (letters) {
+      queue.push(exCaseMatch(sample(l.words, 5)), ...sample(l.words, 3).map(w => exFirstLetter(w, [l.words])));
+    } else {
+      const pS = [l.sentences, previous.flatMap(x => x.sentences)];
+      const S = shuffle(l.sentences);
+      queue.push(exMatch(sample(l.words, 5)), l.unit.stage !== 'independent' ? exSpell(pick(l.words)) : exTypeWord(pick(l.words)));
+      [exBuild(S[0], pS), exMcSentence(S[1], pS), exBuild(S[2], pS, true)].forEach(ex => queue.push({ type: 'study', sentence: ex.sentence }, ex));
+    }
+    const speed = exSpeed(l.words, l.words);
+    if (speed) queue.push(speed);
+    return queue;
+  }
+
   /** Alphabet lessons: letter names, sounds, upper/lower case, first letter of a word. */
   function genLetters(l) {
     const pW = [l.words];
@@ -436,6 +530,11 @@
     return exercises;
   }
 
+  /** Practice ends with the quick round over the weakest items, when there are enough. */
+  function withSpeed(exercises, targets, pool) {
+    const speed = exSpeed(targets, pool);
+    return speed ? exercises.concat(speed) : exercises;
+  }
   /** Practice uses completed or self-declared familiar lessons. kind: weak | listen | write | due. */
   function genPractice(kind) {
     const ls = reviewLessons();
@@ -455,8 +554,8 @@
     if (!sents.length) {
       const weakLetters = weak.filter(isLetter);
       const L = (i) => weakLetters[i % weakLetters.length];
-      return [exEnHe(L(0), pW), exListenPick(L(1), pW), exFirstLetter(L(2), pW), exEnHe(L(3), pW), exMatch(sample(weakLetters, 5)),
-        exListenPick(L(4), pW), exFirstLetter(L(5), pW), exCaseMatch(sample(weakLetters, 5)), exEnHe(L(6), pW), exFirstLetter(L(7), pW)];
+      return withSpeed([exEnHe(L(0), pW), exListenPick(L(1), pW), exFirstLetter(L(2), pW), exEnHe(L(3), pW), exMatch(sample(weakLetters, 5)),
+        exListenPick(L(4), pW), exFirstLetter(L(5), pW), exCaseMatch(sample(weakLetters, 5)), exEnHe(L(6), pW)], weakLetters.slice(0, 8), weakLetters);
     }
     const weakWords = weak.filter((w) => !isLetter(w));
     const RW = (i) => weakWords[i % weakWords.length];
@@ -465,7 +564,7 @@
     const typeW = (w) => (advanced ? exTypeWord(w) : exSpell(w));
     const typeS = (x) => (advanced ? exTypeSentence(x) : exBuild(x, pS));
     const listenS = (x) => (advanced ? exListenType(x) : exBuild(x, pS, true));
-    if (kind === 'due') return weak.slice(0, 10).map((w, i) => i % 2 ? exListenPick(w,pW) : exEnHe(w,pW));
+    if (kind === 'due') return withSpeed(weak.slice(0, 9).map((w, i) => i % 3 === 2 && hasPic(w) ? exListenImage(w,pW) : i % 2 ? exListenPick(w,pW) : exEnHe(w,pW)), weak.slice(0, 9), words);
     if (kind === 'listen') {
       return [exListenPick(W(0), pW), exListenPick(W(1), pW), exListenPick(W(2), pW), exBuild(s(0), pS, true), exListenPick(W(3), pW),
         exBuild(s(1), pS, true), listenS(s(2)), exBuild(s(3), pS, true), listenS(s(4)), listenS(s(5))];
@@ -474,9 +573,9 @@
       return [typeW(RW(0)), typeW(RW(1)), typeW(RW(2)), typeS(s(0)), typeW(RW(3)),
         typeS(s(1)), listenS(s(2)), typeW(RW(4)), typeS(s(3)), listenS(s(4))];
     }
-    return [exPickImage(W(0), pW, false), exEnHe(W(1), pW), exEnHe(W(2), pW), exListenPick(W(3), pW),
+    return withSpeed([exPickImage(W(0), pW, false), exEnHe(W(1), pW), exListenImage(W(2), pW), exListenPick(W(3), pW),
       exMatch(weakWords.length >= 5 ? weakWords.slice(0, 5) : weak.slice(0, 5)),
-      typeW(RW(4)), exBuild(s(0), pS), typeW(RW(5)), exBuild(s(1), pS), typeS(s(2))];
+      typeW(RW(4)), exBuild(s(0), pS), typeW(RW(5)), exBuild(s(1), pS)], weak.slice(0, 8), words);
   }
 
   // ───────────────────────── 7. Exercise renderers ─────────────────────────
@@ -592,6 +691,74 @@
         speak(ex.word.en);
       },
       grade: (ex, a) => ({ ok: a === ex.word.en, correct: ex.word.en, correctDir: 'en', meaning: ex.word.he, words: [ex.word], word: ex.word })
+    },
+
+    listen_image: {
+      render(ex, body) {
+        body.innerHTML = `<h2 class="ex-title">הקשיבו ובחרו את התמונה</h2>${speakBig(ex.word.en)}
+          <div class="image-grid">${ex.options.map((w) => `
+            <button class="img-card"><span class="emo" aria-hidden="true">${w.emoji}</span><span class="lbl he">${esc(w.he)}</span></button>`).join('')}
+          </div>`;
+        wireChoices(body, '.img-card', (i) => setAnswer(ex.options[i].en));
+        speak(ex.word.en);
+      },
+      grade: (ex, a) => ({ ok: a === ex.word.en, correct: ex.word.en, correctDir: 'en', meaning: ex.word.he, words: [ex.word], word: ex.word })
+    },
+
+    // Quick round: one tap per item, instant feedback, no Check button.
+    speed: {
+      render(ex, body) {
+        const owner = session;
+        let i = 0, right = 0, busy = false;
+        const started = Date.now();
+        $('#check-btn').classList.add('hidden');
+        const draw = () => {
+          const it = ex.items[i], letter = isLetter(it.word);
+          body.innerHTML = `<div class="new-badge">⚡ סיבוב בזק</div>
+            <h2 class="ex-title">נכון או לא? עונים בלחיצה אחת</h2>
+            <div class="speed-dots" aria-label="פריט ${i + 1} מתוך ${ex.items.length}">${ex.items.map((x, j) => `<i class="${j < i ? (x.ok ? 'ok' : 'bad') : j === i ? 'now' : ''}"></i>`).join('')}</div>
+            <div class="speed-card" id="speed-card">
+              <div class="speed-en en ${letter ? 'letter-big' : ''}">${speakBtn(it.word.en)} ${letter ? bigLetter(it.word) : esc(it.word.en)}</div>
+              <div class="speed-eq" aria-hidden="true">=</div>
+              <div class="speed-he"><span aria-hidden="true">${hasPic(it.shown) ? it.shown.emoji + ' ' : ''}</span><span class="he">${esc(it.shown.he)}</span></div>
+              <p class="speed-note" id="speed-note" role="status" aria-live="polite"></p>
+            </div>
+            <div class="speed-actions">
+              <button class="btn primary speed-btn" data-v="1">✓ נכון</button>
+              <button class="btn red speed-btn" data-v="0">✗ לא נכון</button>
+            </div>`;
+          const btns = $$('.speed-btn', body);
+          session.numberKeys = btns;
+          btns.forEach(b => b.addEventListener('click', () => answer(b.dataset.v === '1')));
+          speak(it.word.en);
+        };
+        const answer = (yes) => {
+          if (busy || session !== owner || session.cur !== ex || session.phase !== 'answer') return;
+          busy = true;
+          const it = ex.items[i];
+          it.ok = yes === it.truth;
+          recordWord(it.word, it.ok);
+          const card = $('#speed-card');
+          if (it.ok) {
+            right++; session.combo++; session.maxCombo = Math.max(session.maxCombo, session.combo);
+            sfx.correct(session.combo); card.classList.add('flash-ok');
+          } else {
+            session.mistakes++; session.combo = 0; sfx.wrong(); vibrate(80); card.classList.add('flash-bad');
+            $('#speed-note').innerHTML = `<bdi dir="ltr">${esc(it.word.en)}</bdi> = ${esc(it.word.he)}`;
+          }
+          save();
+          setTimeout(() => {
+            if (session !== owner || session.cur !== ex) return;
+            busy = false;
+            if (++i < ex.items.length) return draw();
+            ex.result = { right, total: ex.items.length, secs: Math.round((Date.now() - started) / 1000) };
+            session.speed = ex.result;
+            showFeedback({ ok: true, speed: ex.result, noCombo: true });
+          }, it.ok ? 550 : 1600);
+        };
+        draw();
+      },
+      grade: () => ({ ok: true })
     },
 
     // Alphabet: hear a word + see its picture, pick the letter it starts with
@@ -733,17 +900,11 @@
   let session = null;
 
   function prepareLesson(lesson) {
+    if (!state.completed[lesson.id] || creator.fresh) return genFirstLesson(lesson);
+    // Repeating a lesson: no introductions, mixed practice, then the quick round.
     const exercises = genLesson(lesson);
-    if (state.completed[lesson.id]) return exercises;
-    const queue = lesson.words.map(word => ({ type:'study', word }));
-    const introduced = new Set();
-    exercises.forEach(ex => {
-      if (ex.sentence && !introduced.has(ex.sentence.en)) {
-        queue.push({ type:'study', sentence:ex.sentence }); introduced.add(ex.sentence.en);
-      }
-      queue.push(ex);
-    });
-    return queue;
+    const speed = exSpeed(lesson.words, lesson.words);
+    return speed ? exercises.concat(speed) : exercises;
   }
 
   function startSession(kind, lessonId) {
@@ -769,6 +930,7 @@
 
   function visualExercise(ex) {
     if (ex.type === 'listen_pick' && !isLetter(ex.word)) return exEnHe(ex.word, [ex.options]);
+    if (ex.type === 'listen_image') return exPickImage(ex.word, [ex.options], false);
     if (ex.type === 'listen_build') return { ...ex, type:'build' };
     if (ex.type === 'listen_type') return { ...ex, type:'type_sentence' };
     return ex;
@@ -784,7 +946,7 @@
           <div class="lesson-hearts">❤️ <span id="lesson-hearts">${session.kind === 'lesson' ? heartsLabel() : '∞'}</span></div>
         </div>
         <div class="lesson-caption">${session.lesson ? mixed(session.lesson.title) : 'תרגול אישי'} · ${session.cur.type === 'study' ? 'מכירים את החומר' : `<bdi dir="ltr">${Math.min(session.done+1,session.total)} / ${session.total}</bdi>`}</div>
-        <div class="combo" id="combo"></div>
+        <div class="combo" id="combo">${session.combo >= 2 ? `🔥 ${session.combo} ברצף` : ''}</div>
         <div class="ex-body" id="ex-body"></div>
         <div class="footer" id="footer">
           <div class="fb" id="fb" role="status" aria-live="polite"></div>
@@ -841,14 +1003,16 @@
 
     if (res.ok) {
       session.done++;
-      if (!res.pairErrors) session.combo++;
+      if (!res.pairErrors && !res.noCombo) session.combo++;
       session.maxCombo = Math.max(session.maxCombo, session.combo);
-      sfx.correct();
+      if (!res.speed) sfx.correct(session.combo);
       footer.className = 'footer ok';
       let body = '';
-      if (res.typo) body = `שימו לב לאיות: ${ans} ${speakLink}`;
+      if (res.speed) body = `⚡ <bdi dir="ltr">${res.speed.right} / ${res.speed.total}</bdi> נכונות${res.speed.right === res.speed.total ? ' · בונוס <bdi dir="ltr">+3 XP</bdi>' : ''}`;
+      else if (res.typo) body = `שימו לב לאיות: ${ans} ${speakLink}`;
       else if (res.meaning && res.correctDir === 'en') body = `${ans} ${res.word && res.word.say ? `<span class="he say-inline">(${esc(res.word.say)})</span> ` : ''}= <span class="he">${esc(res.meaning)}</span> ${speakLink}`;
-      fb.innerHTML = `<div class="fb-head"><span class="badge">✓</span>${pick(PRAISE)}</div>${body ? `<div class="fb-body">${body}</div>` : ''}`;
+      const head = res.speed && res.speed.right < res.speed.total ? 'סיימתם את הסיבוב!' : pick(PRAISE);
+      fb.innerHTML = `<div class="fb-head"><span class="badge">✓</span>${head}</div>${body ? `<div class="fb-body">${body}</div>` : ''}`;
       btn.className = 'btn block primary';
       const c = session.combo;
       if (c === 3 || c === 5 || c === 8 || c === 12) {
@@ -874,9 +1038,11 @@
       if (retry.options) retry.options = shuffle(retry.options);
       if (retry.tiles) retry.tiles = shuffle(retry.tiles);
       retry.isNew = false;
-      session.queue.push(retry);
+      // The quick round stays the finale: retries go in before it.
+      const last = session.queue[session.queue.length - 1];
+      session.queue.splice(last && last.type === 'speed' ? session.queue.length - 1 : session.queue.length, 0, retry);
     }
-    if (session.cur.type !== 'match') fb.innerHTML += `<details class="explanation" ${res.ok ? '' : 'open'}><summary>${res.ok ? 'למה זו התשובה?' : 'בואו נבין ביחד'}</summary><p>${explainAnswer(session.cur, session.answer)}</p></details>`;
+    if (session.cur.type !== 'match' && session.cur.type !== 'speed') fb.innerHTML += `<details class="explanation" ${res.ok ? '' : 'open'}><summary>${res.ok ? 'למה זו התשובה?' : 'בואו נבין ביחד'}</summary><p>${explainAnswer(session.cur, session.answer)}</p></details>`;
     if (res.ok && res.correctDir === 'en' && session.cur.type !== 'match' && !/^listen/.test(session.cur.type)) autoSpeak(res.speakText || (res.typo ? res.expected : res.correct));
     btn.textContent = 'המשך';
     save();
@@ -909,7 +1075,9 @@
     const s = session;
     const isLesson = s.kind === 'lesson';
     const perfect = s.mistakes === 0;
-    const xp = isLesson ? XP_LESSON + (perfect ? XP_PERFECT_BONUS : 0) : XP_PRACTICE;
+    const speedBonus = s.speed && s.speed.right === s.speed.total ? XP_SPEED_BONUS : 0;
+    const xp = (isLesson ? XP_LESSON + (perfect ? XP_PERFECT_BONUS : 0) : XP_PRACTICE) + speedBonus;
+    const xpParts = [isLesson ? `שיעור +${XP_LESSON}` : `תרגול +${XP_PRACTICE}`].concat(isLesson && perfect ? [`בלי טעויות +${XP_PERFECT_BONUS}`] : [], speedBonus ? [`סיבוב בזק מושלם +${speedBonus}`] : []);
     const streakBefore = currentStreak();
     const goalBefore = dailyXp() >= state.settings.dailyGoal;
     if (isLesson) {
@@ -928,7 +1096,9 @@
 
     const secs = Math.round((Date.now() - s.start) / 1000);
     const time = `${Math.floor(secs / 60)}:${pad2(secs % 60)}`;
-    const accuracy = Math.round((100 * s.total) / (s.total + s.mistakes));
+    // Every exercise ends answered right once; the quick round adds one answer per item.
+    const rightAnswers = s.speed ? s.total - 1 + s.speed.right : s.total;
+    const accuracy = Math.round((100 * rightAnswers) / Math.max(1, rightAnswers + s.mistakes));
     $('#app').innerHTML = `
       <div class="result">
         <div class="hero">${perfect ? '🏆' : '🎉'}</div>
@@ -940,6 +1110,9 @@
           <div class="r-stat" style="--c:var(--green)"><div class="h">דיוק</div><div class="v">${accuracy}%</div></div>
           <div class="r-stat" style="--c:var(--blue)"><div class="h">זמן</div><div class="v en">${time}</div></div>
         </div>
+        <p class="xp-parts">${xpParts.map(esc).join(' · ')}${s.maxCombo >= 3 ? ` · 🔥 שיא ברצף: ${s.maxCombo}` : ''}</p>
+        ${isLesson ? `<div class="card result-words"><h3>${s.lesson.type === 'letters' ? 'האותיות של השיעור' : 'המילים של השיעור'}</h3><p class="study-hint">לחצו כדי לשמוע שוב, ואמרו בקול.</p>
+          <div class="chips">${s.lesson.words.map(w => `<button class="chip en" data-action="speak" data-text="${esc(w.en)}">${w.emoji && !isLetter(w) ? w.emoji + ' ' : ''}${esc(w.en)} <span class="he">· ${esc(w.he)}</span></button>`).join('')}</div></div>` : ''}
         ${streakUp ? `<div class="card" style="width:100%">🔥 <b>רצף של ${currentStreak()} ${currentStreak() === 1 ? 'יום' : 'ימים'}!</b> תחזרו מחר כדי לשמור עליו.</div>` : ''}
         ${goalNow ? '<div class="card" style="width:100%">🎯 <b>עמדתם ביעד היומי!</b></div>' : ''}
         ${newAch.map((a) => `<div class="card" style="width:100%">${a.icon} <b>הישג חדש: ${esc(a.title)}</b> – ${esc(a.desc)}</div>`).join('')}
@@ -1021,7 +1194,7 @@
         return `<div class="node-wrap" style="--off:${off}px">
           ${st === 'current' ? '<div class="start-bubble">התחילו!</div>' : ''}
           <button class="node ${st}" data-action="open-lesson" data-id="${l.id}" aria-label="${esc(l.title)}">${st === 'locked' ? '🔒' : l.icon}</button>
-          <div class="node-label">${mixed(l.title)}${st === 'available' ? '<small>זמין לחזרה</small>' : ''}</div>
+          <div class="node-label">${mixed(l.title)}${st === 'available' ? `<small>${l.order < startOrder() ? 'זמין לחזרה' : '🛠️ פתוח במצב יוצר'}</small>` : ''}</div>
         </div>`;
       }).join('');
       return `<section class="unit" style="--uc:${u.color};--ucd:${shade(u.color, -0.25)}">
@@ -1136,8 +1309,22 @@
         </div>
       </div>
       <div class="card"><h3>💾 ההתקדמות שלכם</h3><p>נשמרת בדפדפן ובמכשיר הזה. הורידו גיבוי כדי להעביר למכשיר אחר.</p><div class="actions"><button class="btn block" data-action="export-progress">הורדת גיבוי</button><button class="btn block" data-action="import-progress">שחזור מגיבוי</button><input id="progress-file" class="hidden" type="file" accept=".json,application/json"></div></div>
-      <div class="card"><h3>🔊 בדיקת שמע ועדכונים</h3><p>גרסה <bdi dir="ltr">${window.YALLA_BUILD.version}</bdi></p><p>משהו נשמע לא נכון? אפשר לבדוק כל אות, מילה ומשפט ולשמור דו״ח מסודר.</p><div class="actions"><a class="btn block" href="audio-review.html">פתיחת בדיקת השמע</a><a class="btn block" href="audio-credits.html">מקורות ההקלטות</a><button class="btn block" data-check-update>בדיקת עדכון</button></div><p data-update-status role="status"></p></div>
+      <div class="card"><h3>🔊 בדיקת שמע ועדכונים</h3><p class="version-line" data-action="version-tap">גרסה <bdi dir="ltr">${window.YALLA_BUILD.version}</bdi></p><p>משהו נשמע לא נכון? אפשר לבדוק כל אות, מילה ומשפט ולשמור דו״ח מסודר.</p><div class="actions"><a class="btn block" href="audio-review.html">פתיחת בדיקת השמע</a><a class="btn block" href="audio-credits.html">מקורות ההקלטות</a><button class="btn block" data-check-update>בדיקת עדכון</button></div><p data-update-status role="status"></p></div>
+      ${creator.on ? creatorHTML() : ''}
       <button class="btn block" style="color:var(--red)" data-action="reset">איפוס התקדמות</button>`;
+  }
+
+  function creatorHTML() {
+    const snap = readSnapshot();
+    const toggle = (key, title, desc) => `<label class="setting"><div><div class="s-title">${title}</div><div class="s-desc">${desc}</div></div>
+      <span class="switch"><input type="checkbox" data-creator="${key}" ${creator[key] ? 'checked' : ''}><span class="track"></span></span></label>`;
+    return `<div class="card creator-card"><h3>🛠️ מצב יוצר</h3>
+      <p class="s-desc">כלים לבדיקת האפליקציה. משפיעים רק על המכשיר הזה, לא על הטלפון של הלומד.</p>
+      <button class="btn blue block" data-action="creator-restart">🔄 להתחיל מאפס כמו משתמש חדש</button>
+      ${snap ? `<button class="btn block" data-action="creator-restore">↩️ חזרה להתקדמות השמורה (<bdi dir="ltr">${esc(new Date(snap.savedAt).toLocaleDateString('he-IL'))}</bdi>)</button>` : ''}
+      ${toggle('unlockAll', 'כל השיעורים פתוחים', 'אפשר להיכנס לכל שיעור בלי לסיים את הקודמים.')}
+      ${toggle('fresh', 'כל שיעור כמו בפעם הראשונה', 'גם שיעור שהושלם יוצג עם ההיכרות עם המילים.')}
+      <button class="btn ghost block" data-action="creator-off">יציאה ממצב יוצר</button></div>`;
   }
 
   const SCREENS = { path: pathHTML, practice: practiceHTML, words: wordsHTML, profile: profileHTML };
@@ -1383,6 +1570,32 @@
       try { await installPrompt.userChoice; } catch (e) { /* ignore */ }
       installPrompt = null; render();
     },
+    'version-tap': () => {
+      versionTaps = Date.now() - lastVersionTap < 1500 ? versionTaps + 1 : 1;
+      lastVersionTap = Date.now();
+      if (versionTaps >= 5 && !creator.on) { versionTaps = 0; setCreator({ on: true }); render(); toast('🛠️ מצב יוצר הופעל. הכלים בתחתית הפרופיל.'); }
+    },
+    'creator-off': () => { setCreator({ on: false }); render(); toast('מצב יוצר כובה'); },
+    'creator-restart': () => openModal(`<h2>🔄 להתחיל מאפס</h2>
+        <p class="sub">האפליקציה תיפתח כמו אצל משתמש חדש: מסך הפתיחה, בחירת רמה ושיעור ראשון.</p>
+        <div class="tip-box">${readSnapshot() ? 'ההתקדמות מלפני האיפוס הראשון כבר שמורה בצד, ואפשר לחזור אליה.' : 'ההתקדמות הנוכחית תישמר בצד במכשיר הזה, ואפשר לחזור אליה מהפרופיל.'}</div>
+        <div class="actions"><button class="btn blue block" data-action="creator-restart-confirm">כן, להתחיל מאפס</button>
+        <button class="btn block" data-action="close-modal">ביטול</button></div>`),
+    'creator-restart-confirm': () => {
+      // Keep the first snapshot: repeated test runs must not overwrite the real progress.
+      if (!readSnapshot()) { try { localStorage.setItem(SNAPSHOT_KEY, JSON.stringify({ savedAt: Date.now(), state })); } catch (e) { /* ignore */ } }
+      const voice = state.settings.voice;
+      state = clone(DEFAULT_STATE); state.heartsTs = Date.now(); state.settings.voice = voice;
+      save(); closeModal(); view = 'path'; render(); window.scrollTo(0, 0);
+    },
+    'creator-restore': () => {
+      const snap = readSnapshot();
+      if (!snap) return;
+      try { state = cleanState(snap.state); } catch (e) { return toast('ההתקדמות השמורה פגומה.'); }
+      try { localStorage.removeItem(SNAPSHOT_KEY); } catch (e) { /* ignore */ }
+      window.YallaAudio.setVoice(state.settings.voice);
+      save(); render(); toast('ההתקדמות השמורה חזרה');
+    },
     reset: () => openModal(`<h2>⚠️ איפוס התקדמות</h2><p class="sub">כל השיעורים, ה-XP והרצף יימחקו. אי אפשר לבטל את זה.</p>
         <div class="actions"><button class="btn red block" data-action="reset-confirm">כן, למחוק הכל</button>
         <button class="btn block" data-action="close-modal">ביטול</button></div>`),
@@ -1397,7 +1610,10 @@
     const fn = ACTIONS[el.dataset.action];
     if (fn) fn(el.dataset, e);
   });
+  let versionTaps = 0, lastVersionTap = 0;
   document.addEventListener('change', (e) => {
+    const ck = e.target.dataset && e.target.dataset.creator;
+    if (ck) { setCreator({ [ck]: e.target.checked }); return; }
     const key = e.target.dataset && e.target.dataset.setting;
     if (!key) return;
     state.settings[key] = e.target.checked;
@@ -1435,7 +1651,7 @@
   });
 
   // Debug hook for testing in the browser console: __yalla.session, __yalla.state
-  window.__yalla = { get session() { return session; }, get state() { return state; }, LESSONS, normalize, gradeText, genLesson, genPractice, prepareLesson, cleanState, placementLevel, lessonStatus, currentLessonIndex, wordKey, recordWord, learnedWords, dueWords, vocabularyCount, visualExercise };
+  window.__yalla = { get session() { return session; }, get state() { return state; }, get creator() { return creator; }, setCreator, exSpeed, exListenImage, genFirstLesson, LESSONS, normalize, gradeText, genLesson, genPractice, prepareLesson, cleanState, placementLevel, lessonStatus, currentLessonIndex, wordKey, recordWord, learnedWords, dueWords, vocabularyCount, visualExercise };
 
   render();
 })();
