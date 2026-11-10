@@ -1,0 +1,3460 @@
+[
+  {
+    "id": "word:house",
+    "type": "word",
+    "text": "house",
+    "meaning": "בית",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ual2",
+        "title": "H עד N"
+      },
+      {
+        "id": "u2l2",
+        "title": "בבית"
+      }
+    ],
+    "assetId": "43e34e54650e07e37073",
+    "expectedIPA": null,
+    "expectedSpokenText": "house",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "word:orange",
+    "type": "word",
+    "text": "orange",
+    "meaning": "תפוז",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ual3",
+        "title": "O עד U"
+      },
+      {
+        "id": "u2l3",
+        "title": "צבעים"
+      }
+    ],
+    "assetId": "e591b0a9eb3d551800e4",
+    "expectedIPA": null,
+    "expectedSpokenText": "orange",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "word:x-ray",
+    "type": "word",
+    "text": "x-ray",
+    "meaning": "צילום רנטגן",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ual4",
+        "title": "V עד Z"
+      }
+    ],
+    "assetId": "6582721231d0cd271096",
+    "expectedIPA": null,
+    "expectedSpokenText": "x-ray",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a cat",
+    "type": "sentence",
+    "text": "a cat",
+    "meaning": "חתול",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl1",
+        "title": "cat, hat, bag"
+      },
+      {
+        "id": "ufl2",
+        "title": "a, an ו־the"
+      }
+    ],
+    "assetId": "3d9438af13d7ce209f4c",
+    "expectedIPA": null,
+    "expectedSpokenText": "a cat",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a hat",
+    "type": "sentence",
+    "text": "a hat",
+    "meaning": "כובע",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl1",
+        "title": "cat, hat, bag"
+      }
+    ],
+    "assetId": "10e722cb96ce6aea76bd",
+    "expectedIPA": null,
+    "expectedSpokenText": "a hat",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a bag",
+    "type": "sentence",
+    "text": "a bag",
+    "meaning": "תיק",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl1",
+        "title": "cat, hat, bag"
+      }
+    ],
+    "assetId": "8d13cf7e9fe4fe909d84",
+    "expectedIPA": null,
+    "expectedSpokenText": "a bag",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a man",
+    "type": "sentence",
+    "text": "a man",
+    "meaning": "איש",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl1",
+        "title": "cat, hat, bag"
+      }
+    ],
+    "assetId": "7ead6ed1049f946edf27",
+    "expectedIPA": null,
+    "expectedSpokenText": "a man",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a cat and a hat",
+    "type": "sentence",
+    "text": "a cat and a hat",
+    "meaning": "חתול וכובע",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl1",
+        "title": "cat, hat, bag"
+      }
+    ],
+    "assetId": "54e8e5dc0ef43f8e168c",
+    "expectedIPA": null,
+    "expectedSpokenText": "a cat and a hat",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a red pen",
+    "type": "sentence",
+    "text": "a red pen",
+    "meaning": "עט אדום",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl2",
+        "title": "pen, red, pig"
+      }
+    ],
+    "assetId": "83708d370263a4b19355",
+    "expectedIPA": null,
+    "expectedSpokenText": "a red pen",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a big pig",
+    "type": "sentence",
+    "text": "a big pig",
+    "meaning": "חזיר גדול",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl2",
+        "title": "pen, red, pig"
+      }
+    ],
+    "assetId": "e3d6515a5231073392f5",
+    "expectedIPA": null,
+    "expectedSpokenText": "a big pig",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a red bed",
+    "type": "sentence",
+    "text": "a red bed",
+    "meaning": "מיטה אדומה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl2",
+        "title": "pen, red, pig"
+      }
+    ],
+    "assetId": "6be0e4dfe0bdd9be3362",
+    "expectedIPA": null,
+    "expectedSpokenText": "a red bed",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a big cat",
+    "type": "sentence",
+    "text": "a big cat",
+    "meaning": "חתול גדול",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl2",
+        "title": "pen, red, pig"
+      }
+    ],
+    "assetId": "97e0c927cdecb2b82982",
+    "expectedIPA": null,
+    "expectedSpokenText": "a big cat",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a red hen",
+    "type": "sentence",
+    "text": "a red hen",
+    "meaning": "תרנגולת אדומה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl2",
+        "title": "pen, red, pig"
+      }
+    ],
+    "assetId": "09d7c78c2920f23b6e6d",
+    "expectedIPA": null,
+    "expectedSpokenText": "a red hen",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a big dog",
+    "type": "sentence",
+    "text": "a big dog",
+    "meaning": "כלב גדול",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl3",
+        "title": "dog, sun, bus"
+      }
+    ],
+    "assetId": "6a286a8ee336f0c47886",
+    "expectedIPA": null,
+    "expectedSpokenText": "a big dog",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a red fox",
+    "type": "sentence",
+    "text": "a red fox",
+    "meaning": "שועל אדום",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl3",
+        "title": "dog, sun, bus"
+      }
+    ],
+    "assetId": "824c0e6e5011df4194c3",
+    "expectedIPA": null,
+    "expectedSpokenText": "a red fox",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a box",
+    "type": "sentence",
+    "text": "a box",
+    "meaning": "קופסה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl3",
+        "title": "dog, sun, bus"
+      }
+    ],
+    "assetId": "69e147e67f06f8dd0962",
+    "expectedIPA": null,
+    "expectedSpokenText": "a box",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:the sun",
+    "type": "sentence",
+    "text": "the sun",
+    "meaning": "השמש",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl3",
+        "title": "dog, sun, bus"
+      }
+    ],
+    "assetId": "a1bf28f78d3a122d0e78",
+    "expectedIPA": null,
+    "expectedSpokenText": "the sun",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a cup",
+    "type": "sentence",
+    "text": "a cup",
+    "meaning": "כוס",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl3",
+        "title": "dog, sun, bus"
+      }
+    ],
+    "assetId": "b333362618819bafe5a9",
+    "expectedIPA": null,
+    "expectedSpokenText": "a cup",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a bug",
+    "type": "sentence",
+    "text": "a bug",
+    "meaning": "חרק",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl3",
+        "title": "dog, sun, bus"
+      }
+    ],
+    "assetId": "f95eb467247750012804",
+    "expectedIPA": null,
+    "expectedSpokenText": "a bug",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:hi mom",
+    "type": "sentence",
+    "text": "hi mom",
+    "meaning": "היי אמא",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl4",
+        "title": "hi, mom, dad"
+      }
+    ],
+    "assetId": "72d9d3beb1c2c0f81a33",
+    "expectedIPA": null,
+    "expectedSpokenText": "hi mom",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:hi dad",
+    "type": "sentence",
+    "text": "hi dad",
+    "meaning": "היי אבא",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl4",
+        "title": "hi, mom, dad"
+      }
+    ],
+    "assetId": "a11ebb8a59efc464d0f8",
+    "expectedIPA": null,
+    "expectedSpokenText": "hi dad",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:it is a dog",
+    "type": "sentence",
+    "text": "it is a dog",
+    "meaning": "זה כלב",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl4",
+        "title": "hi, mom, dad"
+      }
+    ],
+    "assetId": "a1b04a7624a0ba81d2e3",
+    "expectedIPA": null,
+    "expectedSpokenText": "it is a dog",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:it is in the box",
+    "type": "sentence",
+    "text": "it is in the box",
+    "meaning": "זה בתוך הקופסה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl4",
+        "title": "hi, mom, dad"
+      }
+    ],
+    "assetId": "178816184ecc51cff362",
+    "expectedIPA": null,
+    "expectedSpokenText": "it is in the box",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:yes, it is hot",
+    "type": "sentence",
+    "text": "yes, it is hot",
+    "meaning": "כן, זה חם",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl4",
+        "title": "hi, mom, dad"
+      }
+    ],
+    "assetId": "b4e0798e06ee398363ff",
+    "expectedIPA": null,
+    "expectedSpokenText": "yes, it is hot",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:mom has a cat",
+    "type": "sentence",
+    "text": "mom has a cat",
+    "meaning": "לאמא יש חתול",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ubl4",
+        "title": "hi, mom, dad"
+      }
+    ],
+    "assetId": "d926dc83d1b67a367ff5",
+    "expectedIPA": null,
+    "expectedSpokenText": "mom has a cat",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a big ship",
+    "type": "sentence",
+    "text": "a big ship",
+    "meaning": "ספינה גדולה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "upl1",
+        "title": "SH ו־CH"
+      }
+    ],
+    "assetId": "cfb8ad23ce41fd884eeb",
+    "expectedIPA": null,
+    "expectedSpokenText": "a big ship",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a fish and a chip",
+    "type": "sentence",
+    "text": "a fish and a chip",
+    "meaning": "דג וצ׳יפס בודד",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "upl1",
+        "title": "SH ו־CH"
+      }
+    ],
+    "assetId": "5bcc4b23abf79e20fdc7",
+    "expectedIPA": null,
+    "expectedSpokenText": "a fish and a chip",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a red dish",
+    "type": "sentence",
+    "text": "a red dish",
+    "meaning": "צלחת אדומה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "upl1",
+        "title": "SH ו־CH"
+      }
+    ],
+    "assetId": "0371c07c05b7cd1748c0",
+    "expectedIPA": null,
+    "expectedSpokenText": "a red dish",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a big shop",
+    "type": "sentence",
+    "text": "a big shop",
+    "meaning": "חנות גדולה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "upl1",
+        "title": "SH ו־CH"
+      }
+    ],
+    "assetId": "35ce3e7dbf5ac1d4a9d6",
+    "expectedIPA": null,
+    "expectedSpokenText": "a big shop",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:this cat",
+    "type": "sentence",
+    "text": "this cat",
+    "meaning": "החתול הזה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "upl2",
+        "title": "שני הצלילים של TH"
+      }
+    ],
+    "assetId": "e6c028f4d92ad66e2b67",
+    "expectedIPA": null,
+    "expectedSpokenText": "this cat",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:that dog",
+    "type": "sentence",
+    "text": "that dog",
+    "meaning": "הכלב ההוא",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "upl2",
+        "title": "שני הצלילים של TH"
+      }
+    ],
+    "assetId": "b5eaa692e3514329c581",
+    "expectedIPA": null,
+    "expectedSpokenText": "that dog",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:three cats",
+    "type": "sentence",
+    "text": "three cats",
+    "meaning": "שלושה חתולים",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "upl2",
+        "title": "שני הצלילים של TH"
+      }
+    ],
+    "assetId": "5c6e0e297c30a278cd7b",
+    "expectedIPA": null,
+    "expectedSpokenText": "three cats",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a thin cat",
+    "type": "sentence",
+    "text": "a thin cat",
+    "meaning": "חתול רזה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "upl2",
+        "title": "שני הצלילים של TH"
+      }
+    ],
+    "assetId": "abc03add25e3803c68a5",
+    "expectedIPA": null,
+    "expectedSpokenText": "a thin cat",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "word:food",
+    "type": "word",
+    "text": "food",
+    "meaning": "אוכל",
+    "hint": "פוּד",
+    "lessons": [
+      {
+        "id": "upl3",
+        "title": "EE, EA ו־OO"
+      }
+    ],
+    "assetId": "5d9aed60b36e81fe9ecf",
+    "expectedIPA": null,
+    "expectedSpokenText": "food",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a book and a pen",
+    "type": "sentence",
+    "text": "a book and a pen",
+    "meaning": "ספר ועט",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "upl3",
+        "title": "EE, EA ו־OO"
+      }
+    ],
+    "assetId": "613ac7d5ee7d2475ea81",
+    "expectedIPA": null,
+    "expectedSpokenText": "a book and a pen",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I see a tree",
+    "type": "sentence",
+    "text": "I see a tree",
+    "meaning": "אני רואה עץ",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "upl3",
+        "title": "EE, EA ו־OO"
+      }
+    ],
+    "assetId": "2e395804624c8f76d368",
+    "expectedIPA": null,
+    "expectedSpokenText": "I see a tree",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:tea and bread",
+    "type": "sentence",
+    "text": "tea and bread",
+    "meaning": "תה ולחם",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "upl3",
+        "title": "EE, EA ו־OO"
+      }
+    ],
+    "assetId": "e71dc85a19e85237d26a",
+    "expectedIPA": null,
+    "expectedSpokenText": "tea and bread",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:the moon",
+    "type": "sentence",
+    "text": "the moon",
+    "meaning": "הירח",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "upl3",
+        "title": "EE, EA ו־OO"
+      }
+    ],
+    "assetId": "9146a270a5af11a216c5",
+    "expectedIPA": null,
+    "expectedSpokenText": "the moon",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "word:kite",
+    "type": "word",
+    "text": "kite",
+    "meaning": "עפיפון",
+    "hint": "קַייט",
+    "lessons": [
+      {
+        "id": "upl4",
+        "title": "ה־E השקטה"
+      }
+    ],
+    "assetId": "fe6a3046a102ff175611",
+    "expectedIPA": null,
+    "expectedSpokenText": "kite",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a red kite",
+    "type": "sentence",
+    "text": "a red kite",
+    "meaning": "עפיפון אדום",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "upl4",
+        "title": "ה־E השקטה"
+      }
+    ],
+    "assetId": "2416493a02c3e9619e77",
+    "expectedIPA": null,
+    "expectedSpokenText": "a red kite",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I have a cap",
+    "type": "sentence",
+    "text": "I have a cap",
+    "meaning": "יש לי כובע מצחייה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "upl4",
+        "title": "ה־E השקטה"
+      }
+    ],
+    "assetId": "8d87485d6233fb1c5b98",
+    "expectedIPA": null,
+    "expectedSpokenText": "I have a cap",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a note in a book",
+    "type": "sentence",
+    "text": "a note in a book",
+    "meaning": "פתק בתוך ספר",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "upl4",
+        "title": "ה־E השקטה"
+      }
+    ],
+    "assetId": "c8ffb472223c8dcc5622",
+    "expectedIPA": null,
+    "expectedSpokenText": "a note in a book",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a red cape",
+    "type": "sentence",
+    "text": "a red cape",
+    "meaning": "גלימה אדומה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "upl4",
+        "title": "ה־E השקטה"
+      }
+    ],
+    "assetId": "901ac56ee3dc0f55dc7a",
+    "expectedIPA": null,
+    "expectedSpokenText": "a red cape",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "word:thank you",
+    "type": "word",
+    "text": "thank you",
+    "meaning": "תודה",
+    "hint": "תֶ'נְק יוּ",
+    "lessons": [
+      {
+        "id": "u1l1",
+        "title": "ברכות"
+      }
+    ],
+    "assetId": "69ac1d5cfc9b1e9bb4fa",
+    "expectedIPA": null,
+    "expectedSpokenText": "thank you",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Hello, how are you?",
+    "type": "sentence",
+    "text": "Hello, how are you?",
+    "meaning": "שלום, מה שלומך?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l1",
+        "title": "ברכות"
+      }
+    ],
+    "assetId": "38b03625c00501436a5c",
+    "expectedIPA": null,
+    "expectedSpokenText": "Hello, how are you?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Thank you very much",
+    "type": "sentence",
+    "text": "Thank you very much",
+    "meaning": "תודה רבה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l1",
+        "title": "ברכות"
+      }
+    ],
+    "assetId": "ceca8fb500eec1c960cc",
+    "expectedIPA": null,
+    "expectedSpokenText": "Thank you very much",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Goodbye and good night",
+    "type": "sentence",
+    "text": "Goodbye and good night",
+    "meaning": "להתראות ולילה טוב",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l1",
+        "title": "ברכות"
+      }
+    ],
+    "assetId": "6666886714d62fbaee03",
+    "expectedIPA": null,
+    "expectedSpokenText": "Goodbye and good night",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Yes, please",
+    "type": "sentence",
+    "text": "Yes, please",
+    "meaning": "כן, בבקשה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l1",
+        "title": "ברכות"
+      }
+    ],
+    "assetId": "9b3e443e0000c6654512",
+    "expectedIPA": null,
+    "expectedSpokenText": "Yes, please",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:No, thank you",
+    "type": "sentence",
+    "text": "No, thank you",
+    "meaning": "לא, תודה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l1",
+        "title": "ברכות"
+      }
+    ],
+    "assetId": "1581c6cda8ffcf8a9c02",
+    "expectedIPA": null,
+    "expectedSpokenText": "No, thank you",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "word:I",
+    "type": "word",
+    "text": "I",
+    "meaning": "אני",
+    "hint": "אַיי",
+    "lessons": [
+      {
+        "id": "u1l2",
+        "title": "אני ואתה"
+      }
+    ],
+    "assetId": "7a88e00626ceac1981eb",
+    "expectedIPA": null,
+    "expectedSpokenText": "I",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I am Dan",
+    "type": "sentence",
+    "text": "I am Dan",
+    "meaning": "אני דן",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l2",
+        "title": "אני ואתה"
+      }
+    ],
+    "assetId": "a6b5e935fe1287fa068d",
+    "expectedIPA": null,
+    "expectedSpokenText": "I am Dan",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:My name is Noa",
+    "type": "sentence",
+    "text": "My name is Noa",
+    "meaning": "השם שלי נועה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l2",
+        "title": "אני ואתה"
+      }
+    ],
+    "assetId": "082551e0faa33d37a90d",
+    "expectedIPA": null,
+    "expectedSpokenText": "My name is Noa",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:What is your name?",
+    "type": "sentence",
+    "text": "What is your name?",
+    "meaning": "מה השם שלך?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l2",
+        "title": "אני ואתה"
+      }
+    ],
+    "assetId": "fb5923a8f52a9a948252",
+    "expectedIPA": null,
+    "expectedSpokenText": "What is your name?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:We are friends",
+    "type": "sentence",
+    "text": "We are friends",
+    "meaning": "אנחנו חברים",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l2",
+        "title": "אני ואתה"
+      }
+    ],
+    "assetId": "9176cb53e5fea48963fa",
+    "expectedIPA": null,
+    "expectedSpokenText": "We are friends",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:He is Tom",
+    "type": "sentence",
+    "text": "He is Tom",
+    "meaning": "הוא טום",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l2",
+        "title": "אני ואתה"
+      }
+    ],
+    "assetId": "ee78b4cec55f7a355608",
+    "expectedIPA": null,
+    "expectedSpokenText": "He is Tom",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:She is my friend",
+    "type": "sentence",
+    "text": "She is my friend",
+    "meaning": "היא החברה שלי",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l2",
+        "title": "אני ואתה"
+      }
+    ],
+    "assetId": "b5913beb0b428d006281",
+    "expectedIPA": null,
+    "expectedSpokenText": "She is my friend",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:This is my mother",
+    "type": "sentence",
+    "text": "This is my mother",
+    "meaning": "זאת אמא שלי",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l3",
+        "title": "משפחה"
+      }
+    ],
+    "assetId": "44c65ac08bfaf3e524b7",
+    "expectedIPA": null,
+    "expectedSpokenText": "This is my mother",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I have a brother",
+    "type": "sentence",
+    "text": "I have a brother",
+    "meaning": "יש לי אח",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l3",
+        "title": "משפחה"
+      }
+    ],
+    "assetId": "17216c0897fd6f2be48d",
+    "expectedIPA": null,
+    "expectedSpokenText": "I have a brother",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:She is my sister",
+    "type": "sentence",
+    "text": "She is my sister",
+    "meaning": "היא אחותי",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l3",
+        "title": "משפחה"
+      }
+    ],
+    "assetId": "667fc407856994fc7b31",
+    "expectedIPA": null,
+    "expectedSpokenText": "She is my sister",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I love my family",
+    "type": "sentence",
+    "text": "I love my family",
+    "meaning": "אני אוהב את המשפחה שלי",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l3",
+        "title": "משפחה"
+      }
+    ],
+    "assetId": "bf4defd440d526d304d1",
+    "expectedIPA": null,
+    "expectedSpokenText": "I love my family",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The baby is sleeping",
+    "type": "sentence",
+    "text": "The baby is sleeping",
+    "meaning": "התינוק ישן",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l3",
+        "title": "משפחה"
+      }
+    ],
+    "assetId": "28a6f0ac7c06b8b5c6ea",
+    "expectedIPA": null,
+    "expectedSpokenText": "The baby is sleeping",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:My father is a teacher",
+    "type": "sentence",
+    "text": "My father is a teacher",
+    "meaning": "אבא שלי מורה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l3",
+        "title": "משפחה"
+      }
+    ],
+    "assetId": "a212692b20b259186098",
+    "expectedIPA": null,
+    "expectedSpokenText": "My father is a teacher",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I have two brothers",
+    "type": "sentence",
+    "text": "I have two brothers",
+    "meaning": "יש לי שני אחים",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l4",
+        "title": "מספרים"
+      }
+    ],
+    "assetId": "24a1c581e354e07acfae",
+    "expectedIPA": null,
+    "expectedSpokenText": "I have two brothers",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I have one sister",
+    "type": "sentence",
+    "text": "I have one sister",
+    "meaning": "יש לי אחות אחת",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l4",
+        "title": "מספרים"
+      }
+    ],
+    "assetId": "e9416bea02a0fc9c760b",
+    "expectedIPA": null,
+    "expectedSpokenText": "I have one sister",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:She is ten",
+    "type": "sentence",
+    "text": "She is ten",
+    "meaning": "היא בת עשר",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l4",
+        "title": "מספרים"
+      }
+    ],
+    "assetId": "b04e1511c875257b12a8",
+    "expectedIPA": null,
+    "expectedSpokenText": "She is ten",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:We have three cats",
+    "type": "sentence",
+    "text": "We have three cats",
+    "meaning": "יש לנו שלושה חתולים",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l4",
+        "title": "מספרים"
+      }
+    ],
+    "assetId": "b04a40ca8b99c7f852c4",
+    "expectedIPA": null,
+    "expectedSpokenText": "We have three cats",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:He is five years old",
+    "type": "sentence",
+    "text": "He is five years old",
+    "meaning": "הוא בן חמש",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u1l4",
+        "title": "מספרים"
+      }
+    ],
+    "assetId": "3cf0f47b3f6ca0ae1ca7",
+    "expectedIPA": null,
+    "expectedSpokenText": "He is five years old",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I am happy",
+    "type": "sentence",
+    "text": "I am happy",
+    "meaning": "אני שמח",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl1",
+        "title": "am, is, are"
+      },
+      {
+        "id": "u3l4",
+        "title": "רגשות"
+      }
+    ],
+    "assetId": "6ffa2190cc5cd7e8541e",
+    "expectedIPA": null,
+    "expectedSpokenText": "I am happy",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:She is tired",
+    "type": "sentence",
+    "text": "She is tired",
+    "meaning": "היא עייפה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl1",
+        "title": "am, is, are"
+      },
+      {
+        "id": "u3l4",
+        "title": "רגשות"
+      }
+    ],
+    "assetId": "40423df55d97b3bbb5f1",
+    "expectedIPA": null,
+    "expectedSpokenText": "She is tired",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:We are ready",
+    "type": "sentence",
+    "text": "We are ready",
+    "meaning": "אנחנו מוכנים",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl1",
+        "title": "am, is, are"
+      }
+    ],
+    "assetId": "4a944ed23e1b4f5d2c6b",
+    "expectedIPA": null,
+    "expectedSpokenText": "We are ready",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Are you happy?",
+    "type": "sentence",
+    "text": "Are you happy?",
+    "meaning": "האם אתם שמחים?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl1",
+        "title": "am, is, are"
+      }
+    ],
+    "assetId": "fcdbb81b4859fa59ae0c",
+    "expectedIPA": null,
+    "expectedSpokenText": "Are you happy?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:They are not sad",
+    "type": "sentence",
+    "text": "They are not sad",
+    "meaning": "הם לא עצובים",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl1",
+        "title": "am, is, are"
+      }
+    ],
+    "assetId": "bb7354570fa841d7cb96",
+    "expectedIPA": null,
+    "expectedSpokenText": "They are not sad",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:He is ready",
+    "type": "sentence",
+    "text": "He is ready",
+    "meaning": "הוא מוכן",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl1",
+        "title": "am, is, are"
+      }
+    ],
+    "assetId": "dd51357e2725808ab83b",
+    "expectedIPA": null,
+    "expectedSpokenText": "He is ready",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:an apple",
+    "type": "sentence",
+    "text": "an apple",
+    "meaning": "תפוח",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl2",
+        "title": "a, an ו־the"
+      }
+    ],
+    "assetId": "51d53f592477c9a23f36",
+    "expectedIPA": null,
+    "expectedSpokenText": "an apple",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:the big dog",
+    "type": "sentence",
+    "text": "the big dog",
+    "meaning": "הכלב הגדול",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl2",
+        "title": "a, an ו־the"
+      }
+    ],
+    "assetId": "55ddd99a964a5cd08435",
+    "expectedIPA": null,
+    "expectedSpokenText": "the big dog",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:an egg",
+    "type": "sentence",
+    "text": "an egg",
+    "meaning": "ביצה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl2",
+        "title": "a, an ו־the"
+      }
+    ],
+    "assetId": "50f458e5a150a9917b14",
+    "expectedIPA": null,
+    "expectedSpokenText": "an egg",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:two small cats",
+    "type": "sentence",
+    "text": "two small cats",
+    "meaning": "שני חתולים קטנים",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl2",
+        "title": "a, an ו־the"
+      }
+    ],
+    "assetId": "3551cafac116fbf5f653",
+    "expectedIPA": null,
+    "expectedSpokenText": "two small cats",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:a big apple",
+    "type": "sentence",
+    "text": "a big apple",
+    "meaning": "תפוח גדול",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl2",
+        "title": "a, an ו־the"
+      }
+    ],
+    "assetId": "6beb0f28f0754f3289eb",
+    "expectedIPA": null,
+    "expectedSpokenText": "a big apple",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I have a bag",
+    "type": "sentence",
+    "text": "I have a bag",
+    "meaning": "יש לי תיק",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl3",
+        "title": "יש לי, בתוך ועל"
+      }
+    ],
+    "assetId": "321a1412e2e9e77821b6",
+    "expectedIPA": null,
+    "expectedSpokenText": "I have a bag",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:She has a cat",
+    "type": "sentence",
+    "text": "She has a cat",
+    "meaning": "יש לה חתול",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl3",
+        "title": "יש לי, בתוך ועל"
+      }
+    ],
+    "assetId": "c19674bc8592d489ede8",
+    "expectedIPA": null,
+    "expectedSpokenText": "She has a cat",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The cat is in the box",
+    "type": "sentence",
+    "text": "The cat is in the box",
+    "meaning": "החתול בתוך הקופסה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl3",
+        "title": "יש לי, בתוך ועל"
+      }
+    ],
+    "assetId": "549747738ff8d1df43a0",
+    "expectedIPA": null,
+    "expectedSpokenText": "The cat is in the box",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:My bag is on the bed",
+    "type": "sentence",
+    "text": "My bag is on the bed",
+    "meaning": "התיק שלי על המיטה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl3",
+        "title": "יש לי, בתוך ועל"
+      }
+    ],
+    "assetId": "88120606ba2bd1718181",
+    "expectedIPA": null,
+    "expectedSpokenText": "My bag is on the bed",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The dog is under the bed",
+    "type": "sentence",
+    "text": "The dog is under the bed",
+    "meaning": "הכלב מתחת למיטה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl3",
+        "title": "יש לי, בתוך ועל"
+      }
+    ],
+    "assetId": "9198dbdb473e42785f1d",
+    "expectedIPA": null,
+    "expectedSpokenText": "The dog is under the bed",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:You have a box",
+    "type": "sentence",
+    "text": "You have a box",
+    "meaning": "יש לכם קופסה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl3",
+        "title": "יש לי, בתוך ועל"
+      }
+    ],
+    "assetId": "285435d2610199f4c516",
+    "expectedIPA": null,
+    "expectedSpokenText": "You have a box",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I drink water",
+    "type": "sentence",
+    "text": "I drink water",
+    "meaning": "אני שותה מים",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl4",
+        "title": "פעולות ושאלות"
+      }
+    ],
+    "assetId": "8c29aa78b0612ef555c7",
+    "expectedIPA": null,
+    "expectedSpokenText": "I drink water",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:She drinks milk",
+    "type": "sentence",
+    "text": "She drinks milk",
+    "meaning": "היא שותה חלב",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl4",
+        "title": "פעולות ושאלות"
+      }
+    ],
+    "assetId": "07940e2869150fdee70a",
+    "expectedIPA": null,
+    "expectedSpokenText": "She drinks milk",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Do you like milk?",
+    "type": "sentence",
+    "text": "Do you like milk?",
+    "meaning": "האם אתם אוהבים חלב?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl4",
+        "title": "פעולות ושאלות"
+      }
+    ],
+    "assetId": "96999c64d1d838636f5e",
+    "expectedIPA": null,
+    "expectedSpokenText": "Do you like milk?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Does he read?",
+    "type": "sentence",
+    "text": "Does he read?",
+    "meaning": "האם הוא קורא?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl4",
+        "title": "פעולות ושאלות"
+      }
+    ],
+    "assetId": "6e7521b07d87c87e75b4",
+    "expectedIPA": null,
+    "expectedSpokenText": "Does he read?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I do not like milk",
+    "type": "sentence",
+    "text": "I do not like milk",
+    "meaning": "אני לא אוהב חלב",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl4",
+        "title": "פעולות ושאלות"
+      }
+    ],
+    "assetId": "6790378df910206f2373",
+    "expectedIPA": null,
+    "expectedSpokenText": "I do not like milk",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:She does not eat bread",
+    "type": "sentence",
+    "text": "She does not eat bread",
+    "meaning": "היא לא אוכלת לחם",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "ufl4",
+        "title": "פעולות ושאלות"
+      }
+    ],
+    "assetId": "00a85b9f5c1a2a24c2a5",
+    "expectedIPA": null,
+    "expectedSpokenText": "She does not eat bread",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I eat an apple",
+    "type": "sentence",
+    "text": "I eat an apple",
+    "meaning": "אני אוכל תפוח",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l1",
+        "title": "אוכל"
+      }
+    ],
+    "assetId": "d72c2375435c01146d62",
+    "expectedIPA": null,
+    "expectedSpokenText": "I eat an apple",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:She drinks water",
+    "type": "sentence",
+    "text": "She drinks water",
+    "meaning": "היא שותה מים",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l1",
+        "title": "אוכל"
+      }
+    ],
+    "assetId": "f11750f4d930d45cd161",
+    "expectedIPA": null,
+    "expectedSpokenText": "She drinks water",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I want coffee, please",
+    "type": "sentence",
+    "text": "I want coffee, please",
+    "meaning": "אני רוצה קפה, בבקשה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l1",
+        "title": "אוכל"
+      }
+    ],
+    "assetId": "b7560adf82e87b129ac4",
+    "expectedIPA": null,
+    "expectedSpokenText": "I want coffee, please",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The bread is fresh",
+    "type": "sentence",
+    "text": "The bread is fresh",
+    "meaning": "הלחם טרי",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l1",
+        "title": "אוכל"
+      }
+    ],
+    "assetId": "acd6fb5fdc9ea309db3d",
+    "expectedIPA": null,
+    "expectedSpokenText": "The bread is fresh",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Do you drink tea?",
+    "type": "sentence",
+    "text": "Do you drink tea?",
+    "meaning": "אתה שותה תה?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l1",
+        "title": "אוכל"
+      }
+    ],
+    "assetId": "c0cd43da3547655610c9",
+    "expectedIPA": null,
+    "expectedSpokenText": "Do you drink tea?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I like cheese",
+    "type": "sentence",
+    "text": "I like cheese",
+    "meaning": "אני אוהב גבינה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l1",
+        "title": "אוכל"
+      }
+    ],
+    "assetId": "b8d5e35db0bd0a4e967f",
+    "expectedIPA": null,
+    "expectedSpokenText": "I like cheese",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:This is my house",
+    "type": "sentence",
+    "text": "This is my house",
+    "meaning": "זה הבית שלי",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l2",
+        "title": "בבית"
+      }
+    ],
+    "assetId": "cd13c282fbb0612efcc5",
+    "expectedIPA": null,
+    "expectedSpokenText": "This is my house",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The cat is on the bed",
+    "type": "sentence",
+    "text": "The cat is on the bed",
+    "meaning": "החתול על המיטה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l2",
+        "title": "בבית"
+      }
+    ],
+    "assetId": "950ede8744dbf4859ab6",
+    "expectedIPA": null,
+    "expectedSpokenText": "The cat is on the bed",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Open the door, please",
+    "type": "sentence",
+    "text": "Open the door, please",
+    "meaning": "תפתח את הדלת, בבקשה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l2",
+        "title": "בבית"
+      }
+    ],
+    "assetId": "d01b5f6b8fcef9a4e49b",
+    "expectedIPA": null,
+    "expectedSpokenText": "Open the door, please",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The kitchen is big",
+    "type": "sentence",
+    "text": "The kitchen is big",
+    "meaning": "המטבח גדול",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l2",
+        "title": "בבית"
+      }
+    ],
+    "assetId": "a2a434c6e515857b9b8f",
+    "expectedIPA": null,
+    "expectedSpokenText": "The kitchen is big",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I am in my room",
+    "type": "sentence",
+    "text": "I am in my room",
+    "meaning": "אני בחדר שלי",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l2",
+        "title": "בבית"
+      }
+    ],
+    "assetId": "a25aab48a5baa2f06b57",
+    "expectedIPA": null,
+    "expectedSpokenText": "I am in my room",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The chair is new",
+    "type": "sentence",
+    "text": "The chair is new",
+    "meaning": "הכיסא חדש",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l2",
+        "title": "בבית"
+      }
+    ],
+    "assetId": "41eb11e98329df69dfbe",
+    "expectedIPA": null,
+    "expectedSpokenText": "The chair is new",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "word:black",
+    "type": "word",
+    "text": "black",
+    "meaning": "שחור",
+    "hint": "בְּלֶק",
+    "lessons": [
+      {
+        "id": "u2l3",
+        "title": "צבעים"
+      }
+    ],
+    "assetId": "81c4212eac68cd07193f",
+    "expectedIPA": null,
+    "expectedSpokenText": "black",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The apple is red",
+    "type": "sentence",
+    "text": "The apple is red",
+    "meaning": "התפוח אדום",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l3",
+        "title": "צבעים"
+      }
+    ],
+    "assetId": "f662bce71f7f26e3bdf1",
+    "expectedIPA": null,
+    "expectedSpokenText": "The apple is red",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I like blue",
+    "type": "sentence",
+    "text": "I like blue",
+    "meaning": "אני אוהב כחול",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l3",
+        "title": "צבעים"
+      }
+    ],
+    "assetId": "391c32b78597121c9c57",
+    "expectedIPA": null,
+    "expectedSpokenText": "I like blue",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The sky is blue",
+    "type": "sentence",
+    "text": "The sky is blue",
+    "meaning": "השמיים כחולים",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l3",
+        "title": "צבעים"
+      }
+    ],
+    "assetId": "ce82edbc78fd15cbce75",
+    "expectedIPA": null,
+    "expectedSpokenText": "The sky is blue",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:My car is white",
+    "type": "sentence",
+    "text": "My car is white",
+    "meaning": "המכונית שלי לבנה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l3",
+        "title": "צבעים"
+      }
+    ],
+    "assetId": "e5b6f173e2791dce5dcf",
+    "expectedIPA": null,
+    "expectedSpokenText": "My car is white",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I have a black cat",
+    "type": "sentence",
+    "text": "I have a black cat",
+    "meaning": "יש לי חתול שחור",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l3",
+        "title": "צבעים"
+      }
+    ],
+    "assetId": "6c1ad634ba65d77eed70",
+    "expectedIPA": null,
+    "expectedSpokenText": "I have a black cat",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The grass is green",
+    "type": "sentence",
+    "text": "The grass is green",
+    "meaning": "הדשא ירוק",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l3",
+        "title": "צבעים"
+      }
+    ],
+    "assetId": "cf72147b53c61db605aa",
+    "expectedIPA": null,
+    "expectedSpokenText": "The grass is green",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The dog is big",
+    "type": "sentence",
+    "text": "The dog is big",
+    "meaning": "הכלב גדול",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l4",
+        "title": "חיות"
+      }
+    ],
+    "assetId": "9edd5fb1316e825239c2",
+    "expectedIPA": null,
+    "expectedSpokenText": "The dog is big",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I have a cat",
+    "type": "sentence",
+    "text": "I have a cat",
+    "meaning": "יש לי חתול",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l4",
+        "title": "חיות"
+      }
+    ],
+    "assetId": "a2add0ea2c9a87dd2c0f",
+    "expectedIPA": null,
+    "expectedSpokenText": "I have a cat",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The bird can fly",
+    "type": "sentence",
+    "text": "The bird can fly",
+    "meaning": "הציפור יכולה לעוף",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l4",
+        "title": "חיות"
+      }
+    ],
+    "assetId": "26f32c48ce8256631eb2",
+    "expectedIPA": null,
+    "expectedSpokenText": "The bird can fly",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The fish is in the water",
+    "type": "sentence",
+    "text": "The fish is in the water",
+    "meaning": "הדג במים",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l4",
+        "title": "חיות"
+      }
+    ],
+    "assetId": "ba8e939f430af6021b1a",
+    "expectedIPA": null,
+    "expectedSpokenText": "The fish is in the water",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Lions are strong",
+    "type": "sentence",
+    "text": "Lions are strong",
+    "meaning": "אריות חזקים",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l4",
+        "title": "חיות"
+      }
+    ],
+    "assetId": "162df1b88432a98ef8e3",
+    "expectedIPA": null,
+    "expectedSpokenText": "Lions are strong",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The horse is fast",
+    "type": "sentence",
+    "text": "The horse is fast",
+    "meaning": "הסוס מהיר",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u2l4",
+        "title": "חיות"
+      }
+    ],
+    "assetId": "e2ead5c1133f9447747c",
+    "expectedIPA": null,
+    "expectedSpokenText": "The horse is fast",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I want to sleep",
+    "type": "sentence",
+    "text": "I want to sleep",
+    "meaning": "אני רוצה לישון",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l1",
+        "title": "פעלים"
+      }
+    ],
+    "assetId": "53754ca9ad9d6f9dc704",
+    "expectedIPA": null,
+    "expectedSpokenText": "I want to sleep",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:We go to school",
+    "type": "sentence",
+    "text": "We go to school",
+    "meaning": "אנחנו הולכים לבית הספר",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l1",
+        "title": "פעלים"
+      }
+    ],
+    "assetId": "78a99befa2ac99828e4d",
+    "expectedIPA": null,
+    "expectedSpokenText": "We go to school",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:He reads a book",
+    "type": "sentence",
+    "text": "He reads a book",
+    "meaning": "הוא קורא ספר",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l1",
+        "title": "פעלים"
+      }
+    ],
+    "assetId": "ce0ea25b5f95685690f6",
+    "expectedIPA": null,
+    "expectedSpokenText": "He reads a book",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:They write a letter",
+    "type": "sentence",
+    "text": "They write a letter",
+    "meaning": "הם כותבים מכתב",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l1",
+        "title": "פעלים"
+      }
+    ],
+    "assetId": "b6389e930105a0d8b1e7",
+    "expectedIPA": null,
+    "expectedSpokenText": "They write a letter",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I see a dog",
+    "type": "sentence",
+    "text": "I see a dog",
+    "meaning": "אני רואה כלב",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l1",
+        "title": "פעלים"
+      }
+    ],
+    "assetId": "c9160ecb70afdd7cf885",
+    "expectedIPA": null,
+    "expectedSpokenText": "I see a dog",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:She wants to eat",
+    "type": "sentence",
+    "text": "She wants to eat",
+    "meaning": "היא רוצה לאכול",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l1",
+        "title": "פעלים"
+      }
+    ],
+    "assetId": "b007bc33eaaf30afe7ff",
+    "expectedIPA": null,
+    "expectedSpokenText": "She wants to eat",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "word:how many",
+    "type": "word",
+    "text": "how many",
+    "meaning": "כמה (כמות)",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l2",
+        "title": "שאלות"
+      }
+    ],
+    "assetId": "f0e9edf5509d6ff0bd0a",
+    "expectedIPA": null,
+    "expectedSpokenText": "how many",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Where is the bathroom?",
+    "type": "sentence",
+    "text": "Where is the bathroom?",
+    "meaning": "איפה השירותים?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l2",
+        "title": "שאלות"
+      }
+    ],
+    "assetId": "a51c0cc49db73939c18c",
+    "expectedIPA": null,
+    "expectedSpokenText": "Where is the bathroom?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:What is this?",
+    "type": "sentence",
+    "text": "What is this?",
+    "meaning": "מה זה?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l2",
+        "title": "שאלות"
+      }
+    ],
+    "assetId": "33404f772fb97d320dc5",
+    "expectedIPA": null,
+    "expectedSpokenText": "What is this?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Who is she?",
+    "type": "sentence",
+    "text": "Who is she?",
+    "meaning": "מי היא?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l2",
+        "title": "שאלות"
+      }
+    ],
+    "assetId": "a7de0871f7ac9b78bf6f",
+    "expectedIPA": null,
+    "expectedSpokenText": "Who is she?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Why are you sad?",
+    "type": "sentence",
+    "text": "Why are you sad?",
+    "meaning": "למה אתה עצוב?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l2",
+        "title": "שאלות"
+      }
+    ],
+    "assetId": "d62782bc06f306c7a03b",
+    "expectedIPA": null,
+    "expectedSpokenText": "Why are you sad?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:When is the party?",
+    "type": "sentence",
+    "text": "When is the party?",
+    "meaning": "מתי המסיבה?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l2",
+        "title": "שאלות"
+      }
+    ],
+    "assetId": "b8f1cda16dcdbe545851",
+    "expectedIPA": null,
+    "expectedSpokenText": "When is the party?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:How many cats do you have?",
+    "type": "sentence",
+    "text": "How many cats do you have?",
+    "meaning": "כמה חתולים יש לך?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l2",
+        "title": "שאלות"
+      }
+    ],
+    "assetId": "fa3de14d39c9ff16e621",
+    "expectedIPA": null,
+    "expectedSpokenText": "How many cats do you have?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "word:evening",
+    "type": "word",
+    "text": "evening",
+    "meaning": "ערב",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l3",
+        "title": "זמן"
+      }
+    ],
+    "assetId": "65e1f3310b7e1acb7c57",
+    "expectedIPA": null,
+    "expectedSpokenText": "evening",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Today is a good day",
+    "type": "sentence",
+    "text": "Today is a good day",
+    "meaning": "היום הוא יום טוב",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l3",
+        "title": "זמן"
+      }
+    ],
+    "assetId": "a14a3c09c7f19ad400ee",
+    "expectedIPA": null,
+    "expectedSpokenText": "Today is a good day",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:See you tomorrow",
+    "type": "sentence",
+    "text": "See you tomorrow",
+    "meaning": "נתראה מחר",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l3",
+        "title": "זמן"
+      }
+    ],
+    "assetId": "a68f448546bf4af8889d",
+    "expectedIPA": null,
+    "expectedSpokenText": "See you tomorrow",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I was home yesterday",
+    "type": "sentence",
+    "text": "I was home yesterday",
+    "meaning": "הייתי בבית אתמול",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l3",
+        "title": "זמן"
+      }
+    ],
+    "assetId": "f5f04192b1865cec9d10",
+    "expectedIPA": null,
+    "expectedSpokenText": "I was home yesterday",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Good evening",
+    "type": "sentence",
+    "text": "Good evening",
+    "meaning": "ערב טוב",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l3",
+        "title": "זמן"
+      }
+    ],
+    "assetId": "d3e200c27ff6c6ab4815",
+    "expectedIPA": null,
+    "expectedSpokenText": "Good evening",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I work every day",
+    "type": "sentence",
+    "text": "I work every day",
+    "meaning": "אני עובד כל יום",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l3",
+        "title": "זמן"
+      }
+    ],
+    "assetId": "a15fc985be2b0629e187",
+    "expectedIPA": null,
+    "expectedSpokenText": "I work every day",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:See you next week",
+    "type": "sentence",
+    "text": "See you next week",
+    "meaning": "נתראה בשבוע הבא",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l3",
+        "title": "זמן"
+      }
+    ],
+    "assetId": "c9d98de97adaa72290fb",
+    "expectedIPA": null,
+    "expectedSpokenText": "See you next week",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Are you hungry?",
+    "type": "sentence",
+    "text": "Are you hungry?",
+    "meaning": "אתה רעב?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l4",
+        "title": "רגשות"
+      }
+    ],
+    "assetId": "e8c0c67b8c7c7d657216",
+    "expectedIPA": null,
+    "expectedSpokenText": "Are you hungry?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:It is cold today",
+    "type": "sentence",
+    "text": "It is cold today",
+    "meaning": "קר היום",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l4",
+        "title": "רגשות"
+      }
+    ],
+    "assetId": "b4ce264fc0477dabbf04",
+    "expectedIPA": null,
+    "expectedSpokenText": "It is cold today",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:We are not angry",
+    "type": "sentence",
+    "text": "We are not angry",
+    "meaning": "אנחנו לא כועסים",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l4",
+        "title": "רגשות"
+      }
+    ],
+    "assetId": "e121801e74a9fd2418be",
+    "expectedIPA": null,
+    "expectedSpokenText": "We are not angry",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:He is scared of dogs",
+    "type": "sentence",
+    "text": "He is scared of dogs",
+    "meaning": "הוא מפחד מכלבים",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u3l4",
+        "title": "רגשות"
+      }
+    ],
+    "assetId": "da3f7a4003658a7cf83d",
+    "expectedIPA": null,
+    "expectedSpokenText": "He is scared of dogs",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "word:school",
+    "type": "word",
+    "text": "school",
+    "meaning": "בית ספר",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l1",
+        "title": "מקומות"
+      }
+    ],
+    "assetId": "ff237c9f5d9d9f757571",
+    "expectedIPA": null,
+    "expectedSpokenText": "school",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "word:restaurant",
+    "type": "word",
+    "text": "restaurant",
+    "meaning": "מסעדה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l1",
+        "title": "מקומות"
+      }
+    ],
+    "assetId": "6d4b8aa6c7de53a89bc1",
+    "expectedIPA": null,
+    "expectedSpokenText": "restaurant",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The store is open",
+    "type": "sentence",
+    "text": "The store is open",
+    "meaning": "החנות פתוחה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l1",
+        "title": "מקומות"
+      }
+    ],
+    "assetId": "58a07c03bc63796dea31",
+    "expectedIPA": null,
+    "expectedSpokenText": "The store is open",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Let's go to the beach",
+    "type": "sentence",
+    "text": "Let's go to the beach",
+    "meaning": "בוא נלך לחוף",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l1",
+        "title": "מקומות"
+      }
+    ],
+    "assetId": "de7eb261259e7e8ca7d7",
+    "expectedIPA": null,
+    "expectedSpokenText": "Let's go to the beach",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The park is near my house",
+    "type": "sentence",
+    "text": "The park is near my house",
+    "meaning": "הפארק קרוב לבית שלי",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l1",
+        "title": "מקומות"
+      }
+    ],
+    "assetId": "1973eac0bb5577c30e2b",
+    "expectedIPA": null,
+    "expectedSpokenText": "The park is near my house",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I live in a big city",
+    "type": "sentence",
+    "text": "I live in a big city",
+    "meaning": "אני גר בעיר גדולה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l1",
+        "title": "מקומות"
+      }
+    ],
+    "assetId": "72aca80a44542db48991",
+    "expectedIPA": null,
+    "expectedSpokenText": "I live in a big city",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:We eat at a restaurant",
+    "type": "sentence",
+    "text": "We eat at a restaurant",
+    "meaning": "אנחנו אוכלים במסעדה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l1",
+        "title": "מקומות"
+      }
+    ],
+    "assetId": "9e9902b798896caeb960",
+    "expectedIPA": null,
+    "expectedSpokenText": "We eat at a restaurant",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The hospital is on this street",
+    "type": "sentence",
+    "text": "The hospital is on this street",
+    "meaning": "בית החולים ברחוב הזה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l1",
+        "title": "מקומות"
+      }
+    ],
+    "assetId": "00d6e90bce0d7144f74c",
+    "expectedIPA": null,
+    "expectedSpokenText": "The hospital is on this street",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I go by bus",
+    "type": "sentence",
+    "text": "I go by bus",
+    "meaning": "אני נוסע באוטובוס",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l2",
+        "title": "תחבורה"
+      }
+    ],
+    "assetId": "e09171528ae0608db711",
+    "expectedIPA": null,
+    "expectedSpokenText": "I go by bus",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The train is late",
+    "type": "sentence",
+    "text": "The train is late",
+    "meaning": "הרכבת מאחרת",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l2",
+        "title": "תחבורה"
+      }
+    ],
+    "assetId": "4aa0925712b7e18359a3",
+    "expectedIPA": null,
+    "expectedSpokenText": "The train is late",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Where is the taxi?",
+    "type": "sentence",
+    "text": "Where is the taxi?",
+    "meaning": "איפה המונית?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l2",
+        "title": "תחבורה"
+      }
+    ],
+    "assetId": "39ab911f1aae22d8d8d2",
+    "expectedIPA": null,
+    "expectedSpokenText": "Where is the taxi?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I need a ticket",
+    "type": "sentence",
+    "text": "I need a ticket",
+    "meaning": "אני צריך כרטיס",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l2",
+        "title": "תחבורה"
+      }
+    ],
+    "assetId": "11567e3f3ac6bd3cf64b",
+    "expectedIPA": null,
+    "expectedSpokenText": "I need a ticket",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:He rides a bike",
+    "type": "sentence",
+    "text": "He rides a bike",
+    "meaning": "הוא רוכב על אופניים",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l2",
+        "title": "תחבורה"
+      }
+    ],
+    "assetId": "ab89b9ca3c6db9f327ee",
+    "expectedIPA": null,
+    "expectedSpokenText": "He rides a bike",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The plane is big",
+    "type": "sentence",
+    "text": "The plane is big",
+    "meaning": "המטוס גדול",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l2",
+        "title": "תחבורה"
+      }
+    ],
+    "assetId": "0e763ca66ba929aa5824",
+    "expectedIPA": null,
+    "expectedSpokenText": "The plane is big",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "word:cheap",
+    "type": "word",
+    "text": "cheap",
+    "meaning": "זול",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l3",
+        "title": "קניות"
+      }
+    ],
+    "assetId": "f2933013116b1e793caa",
+    "expectedIPA": null,
+    "expectedSpokenText": "cheap",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:How much is this?",
+    "type": "sentence",
+    "text": "How much is this?",
+    "meaning": "כמה זה עולה?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l3",
+        "title": "קניות"
+      }
+    ],
+    "assetId": "bffca26bb9738fad1696",
+    "expectedIPA": null,
+    "expectedSpokenText": "How much is this?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:This shirt is expensive",
+    "type": "sentence",
+    "text": "This shirt is expensive",
+    "meaning": "החולצה הזאת יקרה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l3",
+        "title": "קניות"
+      }
+    ],
+    "assetId": "4c05c9cefd56f315a9c1",
+    "expectedIPA": null,
+    "expectedSpokenText": "This shirt is expensive",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I want to buy shoes",
+    "type": "sentence",
+    "text": "I want to buy shoes",
+    "meaning": "אני רוצה לקנות נעליים",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l3",
+        "title": "קניות"
+      }
+    ],
+    "assetId": "4a56b9f78561f4fc4fc9",
+    "expectedIPA": null,
+    "expectedSpokenText": "I want to buy shoes",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:It is very cheap",
+    "type": "sentence",
+    "text": "It is very cheap",
+    "meaning": "זה מאוד זול",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l3",
+        "title": "קניות"
+      }
+    ],
+    "assetId": "c2d1ce5c92eab736431a",
+    "expectedIPA": null,
+    "expectedSpokenText": "It is very cheap",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Do you have money?",
+    "type": "sentence",
+    "text": "Do you have money?",
+    "meaning": "יש לך כסף?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l3",
+        "title": "קניות"
+      }
+    ],
+    "assetId": "eb83ef9dee52a6784045",
+    "expectedIPA": null,
+    "expectedSpokenText": "Do you have money?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:What is the price?",
+    "type": "sentence",
+    "text": "What is the price?",
+    "meaning": "מה המחיר?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l3",
+        "title": "קניות"
+      }
+    ],
+    "assetId": "744b144291f6d4f1f961",
+    "expectedIPA": null,
+    "expectedSpokenText": "What is the price?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Turn left",
+    "type": "sentence",
+    "text": "Turn left",
+    "meaning": "פנה שמאלה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l4",
+        "title": "כיוונים"
+      }
+    ],
+    "assetId": "b88254fc2f7808d302bc",
+    "expectedIPA": null,
+    "expectedSpokenText": "Turn left",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:It is not far",
+    "type": "sentence",
+    "text": "It is not far",
+    "meaning": "זה לא רחוק",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l4",
+        "title": "כיוונים"
+      }
+    ],
+    "assetId": "4ffa0da95e6fe7aad6a7",
+    "expectedIPA": null,
+    "expectedSpokenText": "It is not far",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The bank is on the right",
+    "type": "sentence",
+    "text": "The bank is on the right",
+    "meaning": "הבנק בצד ימין",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l4",
+        "title": "כיוונים"
+      }
+    ],
+    "assetId": "5d32b106d52d6cf28f73",
+    "expectedIPA": null,
+    "expectedSpokenText": "The bank is on the right",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Go straight",
+    "type": "sentence",
+    "text": "Go straight",
+    "meaning": "לך ישר",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l4",
+        "title": "כיוונים"
+      }
+    ],
+    "assetId": "71d97c1721f6b8f75167",
+    "expectedIPA": null,
+    "expectedSpokenText": "Go straight",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I am here",
+    "type": "sentence",
+    "text": "I am here",
+    "meaning": "אני כאן",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l4",
+        "title": "כיוונים"
+      }
+    ],
+    "assetId": "4c5d80bad995b20dd886",
+    "expectedIPA": null,
+    "expectedSpokenText": "I am here",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Do you have a map?",
+    "type": "sentence",
+    "text": "Do you have a map?",
+    "meaning": "יש לך מפה?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u4l4",
+        "title": "כיוונים"
+      }
+    ],
+    "assetId": "848e4dd622a28cf999ef",
+    "expectedIPA": null,
+    "expectedSpokenText": "Do you have a map?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Can I see the menu?",
+    "type": "sentence",
+    "text": "Can I see the menu?",
+    "meaning": "אפשר לראות את התפריט?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l1",
+        "title": "במסעדה"
+      }
+    ],
+    "assetId": "0c54e96d03450cc4ba38",
+    "expectedIPA": null,
+    "expectedSpokenText": "Can I see the menu?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I would like a salad",
+    "type": "sentence",
+    "text": "I would like a salad",
+    "meaning": "הייתי רוצה סלט",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l1",
+        "title": "במסעדה"
+      }
+    ],
+    "assetId": "27c0fd32edca6bcf9235",
+    "expectedIPA": null,
+    "expectedSpokenText": "I would like a salad",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The food is delicious",
+    "type": "sentence",
+    "text": "The food is delicious",
+    "meaning": "האוכל טעים",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l1",
+        "title": "במסעדה"
+      }
+    ],
+    "assetId": "7d2806048e5248868e49",
+    "expectedIPA": null,
+    "expectedSpokenText": "The food is delicious",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The check, please",
+    "type": "sentence",
+    "text": "The check, please",
+    "meaning": "חשבון, בבקשה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l1",
+        "title": "במסעדה"
+      }
+    ],
+    "assetId": "e7148ae9116fc42e8c4e",
+    "expectedIPA": null,
+    "expectedSpokenText": "The check, please",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I want orange juice",
+    "type": "sentence",
+    "text": "I want orange juice",
+    "meaning": "אני רוצה מיץ תפוזים",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l1",
+        "title": "במסעדה"
+      }
+    ],
+    "assetId": "de2474678d10c42e5f77",
+    "expectedIPA": null,
+    "expectedSpokenText": "I want orange juice",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:We want to order",
+    "type": "sentence",
+    "text": "We want to order",
+    "meaning": "אנחנו רוצים להזמין",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l1",
+        "title": "במסעדה"
+      }
+    ],
+    "assetId": "ca1eea5424b1f2a1c721",
+    "expectedIPA": null,
+    "expectedSpokenText": "We want to order",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I work in an office",
+    "type": "sentence",
+    "text": "I work in an office",
+    "meaning": "אני עובד במשרד",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l2",
+        "title": "עבודה"
+      }
+    ],
+    "assetId": "6126085da97c92ba074a",
+    "expectedIPA": null,
+    "expectedSpokenText": "I work in an office",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:She is a doctor",
+    "type": "sentence",
+    "text": "She is a doctor",
+    "meaning": "היא רופאה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l2",
+        "title": "עבודה"
+      }
+    ],
+    "assetId": "417c4a6ecf813ab109e2",
+    "expectedIPA": null,
+    "expectedSpokenText": "She is a doctor",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:My teacher is nice",
+    "type": "sentence",
+    "text": "My teacher is nice",
+    "meaning": "המורה שלי נחמדה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l2",
+        "title": "עבודה"
+      }
+    ],
+    "assetId": "5283a2612cbd23412e78",
+    "expectedIPA": null,
+    "expectedSpokenText": "My teacher is nice",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The meeting is at ten",
+    "type": "sentence",
+    "text": "The meeting is at ten",
+    "meaning": "הפגישה בעשר",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l2",
+        "title": "עבודה"
+      }
+    ],
+    "assetId": "2662ed30c942a62a9fe3",
+    "expectedIPA": null,
+    "expectedSpokenText": "The meeting is at ten",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I use a computer",
+    "type": "sentence",
+    "text": "I use a computer",
+    "meaning": "אני משתמש במחשב",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l2",
+        "title": "עבודה"
+      }
+    ],
+    "assetId": "c5bec039424e424e690f",
+    "expectedIPA": null,
+    "expectedSpokenText": "I use a computer",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:He is a student",
+    "type": "sentence",
+    "text": "He is a student",
+    "meaning": "הוא סטודנט",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l2",
+        "title": "עבודה"
+      }
+    ],
+    "assetId": "09fc92d4ce2fa1a766fe",
+    "expectedIPA": null,
+    "expectedSpokenText": "He is a student",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I like to dance",
+    "type": "sentence",
+    "text": "I like to dance",
+    "meaning": "אני אוהב לרקוד",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l3",
+        "title": "תחביבים"
+      }
+    ],
+    "assetId": "bab4ea00b0f16c21a718",
+    "expectedIPA": null,
+    "expectedSpokenText": "I like to dance",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:We watch a movie",
+    "type": "sentence",
+    "text": "We watch a movie",
+    "meaning": "אנחנו צופים בסרט",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l3",
+        "title": "תחביבים"
+      }
+    ],
+    "assetId": "e0442c27f41842704fbd",
+    "expectedIPA": null,
+    "expectedSpokenText": "We watch a movie",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:She can sing",
+    "type": "sentence",
+    "text": "She can sing",
+    "meaning": "היא יודעת לשיר",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l3",
+        "title": "תחביבים"
+      }
+    ],
+    "assetId": "c49ba232dee86464c523",
+    "expectedIPA": null,
+    "expectedSpokenText": "She can sing",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:Do you like music?",
+    "type": "sentence",
+    "text": "Do you like music?",
+    "meaning": "אתה אוהב מוזיקה?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l3",
+        "title": "תחביבים"
+      }
+    ],
+    "assetId": "6ae5d1aee5ae49d81098",
+    "expectedIPA": null,
+    "expectedSpokenText": "Do you like music?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:He swims every day",
+    "type": "sentence",
+    "text": "He swims every day",
+    "meaning": "הוא שוחה כל יום",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l3",
+        "title": "תחביבים"
+      }
+    ],
+    "assetId": "0f64189474bef6fee980",
+    "expectedIPA": null,
+    "expectedSpokenText": "He swims every day",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:My mother likes to cook",
+    "type": "sentence",
+    "text": "My mother likes to cook",
+    "meaning": "אמא שלי אוהבת לבשל",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l3",
+        "title": "תחביבים"
+      }
+    ],
+    "assetId": "bcd089ff1fbfadcbd7b0",
+    "expectedIPA": null,
+    "expectedSpokenText": "My mother likes to cook",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "word:wind",
+    "type": "word",
+    "text": "wind",
+    "meaning": "רוח",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l4",
+        "title": "מזג אוויר"
+      }
+    ],
+    "assetId": "917875e1daf4edaa6f2b",
+    "expectedIPA": null,
+    "expectedSpokenText": "wind",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:It is raining",
+    "type": "sentence",
+    "text": "It is raining",
+    "meaning": "יורד גשם",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l4",
+        "title": "מזג אוויר"
+      }
+    ],
+    "assetId": "e302887d7a89fa152c89",
+    "expectedIPA": null,
+    "expectedSpokenText": "It is raining",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:The sun is hot",
+    "type": "sentence",
+    "text": "The sun is hot",
+    "meaning": "השמש חמה",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l4",
+        "title": "מזג אוויר"
+      }
+    ],
+    "assetId": "82f268ba814070901a4e",
+    "expectedIPA": null,
+    "expectedSpokenText": "The sun is hot",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:I love the summer",
+    "type": "sentence",
+    "text": "I love the summer",
+    "meaning": "אני אוהב את הקיץ",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l4",
+        "title": "מזג אוויר"
+      }
+    ],
+    "assetId": "1570119841a31bb3df1d",
+    "expectedIPA": null,
+    "expectedSpokenText": "I love the summer",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:It is cold in winter",
+    "type": "sentence",
+    "text": "It is cold in winter",
+    "meaning": "קר בחורף",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l4",
+        "title": "מזג אוויר"
+      }
+    ],
+    "assetId": "8b324ecb95579eec9a6b",
+    "expectedIPA": null,
+    "expectedSpokenText": "It is cold in winter",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:What is the weather like today?",
+    "type": "sentence",
+    "text": "What is the weather like today?",
+    "meaning": "מה מזג האוויר היום?",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l4",
+        "title": "מזג אוויר"
+      }
+    ],
+    "assetId": "be4fbccf4659aab03d9e",
+    "expectedIPA": null,
+    "expectedSpokenText": "What is the weather like today?",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  },
+  {
+    "id": "sentence:There is snow on the mountain",
+    "type": "sentence",
+    "text": "There is snow on the mountain",
+    "meaning": "יש שלג על ההר",
+    "hint": "",
+    "lessons": [
+      {
+        "id": "u5l4",
+        "title": "מזג אוויר"
+      }
+    ],
+    "assetId": "492843e4ebe53e1fb3ed",
+    "expectedIPA": null,
+    "expectedSpokenText": "There is snow on the mountain",
+    "notes": "Speak the complete text naturally; never stitch isolated-word recordings.",
+    "currentFile": null
+  }
+]

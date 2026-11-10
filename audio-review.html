@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>בדיקת שמע · יאללה אינגליש</title>
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/learning.css">
+</head>
+<body>
+  <main class="audio-review">
+    <a href="./">← חזרה ללימוד</a>
+    <h1>בודקים שהשמע נכון</h1>
+    <p>הבדיקה משתמשת באותם תכנים ובאותו מנגנון השמעה של השיעורים. האזינו והשוו למה שכתוב. טעינת קובץ אינה אישור שההגייה נכונה.</p>
+    <p>האפליקציה משמיעה הקלטות אנושיות. פריט שאין עבורו הקלטה מסומן כחסר, ואינו מוחלף בקול ממוחשב בלי בחירה מפורשת. התעתיק בעברית הוא עזרה משוערת בלבד.</p>
+    <p><a href="audio-credits.html">מקורות ההקלטות והרישיונות</a></p>
+    <p id="build"></p>
+    <label for="group">מה בודקים?</label>
+    <select id="group"><option value="letter">שמות האותיות A–Z</option><option value="word">כל המילים והדוגמאות</option><option value="sentence">כל המשפטים</option><option value="all">כל התוכן</option><option value="missing">הקלטות שעדיין חסרות</option><option value="fail">פריטים שסומנו כשגויים</option></select>
+    <label for="item">בחירת פריט</label><select id="item"></select>
+    <div id="progress" class="review-count" role="status"></div>
+    <section id="review-card" class="card" aria-label="פריט לבדיקה"></section>
+    <div class="review-actions"><button class="btn" id="previous">הקודם</button><button class="btn" id="next">הבא</button></div>
+    <p id="summary"></p>
+    <button class="btn blue block" id="export">הורדת דו״ח בדיקה</button>
+    <p class="study-hint">הסימונים נשמרים במכשיר הזה ובגרסה הזאת בלבד, ואינם משנים את ההתקדמות בלימוד. הדו״ח מכיל רק תוצאות בדיקת שמע ופרטי דפדפן; הוא אינו נשלח אוטומטית.</p>
+    <button class="btn block" data-check-update>בדיקת עדכון</button><p data-update-status role="status"></p>
+  </main>
+  <div id="update-root"></div>
+  <script src="js/version.js"></script><script src="js/data.js"></script><script src="js/learning.js"></script>
+  <script src="js/human-audio.js"></script><script src="js/audio.js"></script><script src="js/audio-catalog.js"></script><script src="js/audio-review.js"></script><script src="js/updates.js"></script>
+</body>
+</html>

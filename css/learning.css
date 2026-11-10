@@ -1,0 +1,83 @@
+/* Learning, placement and accessibility improvements — mobile first. */
+button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.switch input:focus-visible + .track { outline: 3px solid var(--blue); outline-offset: 3px; }
+.learning-home { border: 2px solid var(--line); border-radius: 24px; padding: 20px; margin: 0 0 28px; background: linear-gradient(140deg,var(--green-l),var(--card) 70%); }
+.home-eyebrow, .sheet-eyebrow { font-size: 13px; font-weight: 700; color: var(--muted); margin-bottom: 8px; }
+.home-heading { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.home-heading h1 { font-size: 25px; line-height: 1.25; margin: 0 0 8px; }
+.home-heading p { font-size: 14px; color: var(--muted); margin: 0; }
+.home-heading > span { font-size: 56px; }
+.daily-track { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 13px; margin-top: 22px; }
+.daily-bar { height: 8px; overflow: hidden; border-radius: 20px; background: var(--line); margin: 8px 0 18px; }
+.daily-bar i { display: block; height: 100%; background: var(--green); border-radius: inherit; }
+.learning-home .btn { font-size: 16px; }
+.home-links { display: flex; justify-content: space-between; gap: 8px; margin-top: 10px; }
+.home-links button { background: none; color: var(--text); border: 0; min-height: 44px; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }
+.review-link { width: 100%; min-height: 44px; padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); text-align: start; font-size: 13px; color: var(--text); margin-top: 6px; }
+.path-heading { font-size: 20px; margin: 0 0 18px; }
+.unit-banner { position: static; background: color-mix(in srgb, var(--uc) 15%, var(--card)); color: var(--text); border: 1px solid color-mix(in srgb,var(--uc) 40%,var(--line)); box-shadow: 0 4px 0 var(--line); }
+.unit-banner p { color: var(--muted); opacity: 1; }
+.guide-btn { background: var(--card); color: var(--text); border-color: var(--line); }
+.node.available { background: var(--card); border: 2px dashed var(--uc); box-shadow: 0 5px 0 var(--line); }
+.node-label { max-width: 170px; text-align: center; }
+.node-label small { display: block; font-size: 11px; font-weight: 400; }
+.level-list { display: flex; flex-direction: column; gap: 10px; margin: 18px 0; }
+.level-option { display: flex; align-items: center; gap: 12px; text-align: start; width: 100%; padding: 14px 12px; background: var(--card); border: 2px solid var(--line); border-radius: 16px; }
+.level-option.selected { border-color: var(--blue); background: var(--blue-l); }
+.level-icon { font-size: 30px; flex: none; }
+.level-option > span:nth-child(2) { flex: 1; }
+.level-option strong { display: block; font-size: 16px; }
+.level-option small { display: block; font-size: 13px; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+.placement-options { margin: 20px 0; }
+.placement-hero { font-size: 60px; text-align: center; }
+.alphabet-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 18px 0; }
+.letter-listen { min-height: 108px; padding: 10px; border: 2px solid var(--line); border-bottom-width: 4px; border-radius: 16px; background: var(--card); display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.letter-listen strong { font-size: 30px; }
+.letter-listen .he { font-size: 15px; }
+.study-card { border: 2px solid var(--line); border-radius: 24px; padding: 22px 18px 10px; background: var(--card); text-align: center; }
+.study-emoji { font-size: 54px; }
+.study-word { font-size: 32px; font-weight: 800; margin: 12px 0 6px; overflow-wrap: anywhere; }
+.study-meaning { font-size: 23px; font-weight: 700; }
+.study-card .speak-big { margin: 16px 0; }
+.study-card .speak-big .speak-btn { width: 68px; height: 68px; font-size: 32px; border-radius: 18px; }
+.study-card .speak-big .slow { width: 52px; height: 52px; font-size: 24px; }
+.study-card p { color: var(--muted); font-size: 14px; }
+.study-hint { color: var(--muted); font-size: 14px; line-height: 1.6; }
+.word-example { font-size: 30px; font-weight: 800; text-align: center; margin: 0; }
+.lesson-caption { text-align: center; color: var(--muted); font-size: 13px; padding: 2px 14px; }
+.explanation { margin-top: 10px; font-size: 14px; line-height: 1.6; color: var(--text); }
+.explanation summary { cursor: pointer; min-height: 44px; padding-top: 10px; font-weight: 700; }
+.explanation p { margin: 2px 0 8px; }
+.footer { max-height: 52dvh; overflow-y: auto; }
+.fb-speak { min-width: 44px; min-height: 44px; }
+.stat { min-height: 44px; }
+.setting { flex-wrap: wrap; }
+.actions { display: flex; flex-direction: column; gap: 10px; }
+.sheet:focus { outline: none; }
+.tile.used { visibility: hidden; }
+.en { overflow-wrap: anywhere; }
+.update-banner { position:fixed; z-index:100; inset:10px 10px auto; margin:auto; max-width:600px; display:flex; align-items:center; gap:12px; padding:12px; border:2px solid var(--green); background:var(--card); color:var(--text); border-radius:16px; box-shadow:0 5px 24px #0003; }
+.update-banner .btn { flex-shrink:0; }
+.audio-review { max-width:700px; margin:auto; padding:24px 16px 60px; }
+.audio-review .review-word { font-size:40px; margin:16px 0 6px; overflow-wrap:anywhere; }
+.audio-review .review-actions { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0; }
+.audio-review .review-actions .btn { flex:1; }
+.audio-review select, .audio-review textarea { width:100%; font:inherit; border:2px solid var(--line); background:var(--card); color:var(--text); padding:12px; border-radius:12px; margin:6px 0 14px; }
+.audio-review .review-count { font-weight:700; }
+.audio-review a { color:var(--blue-d); }
+@media (max-width: 410px) {
+  .brand .name { font-size: 16px; }
+  .brand .logo { font-size: 22px; }
+  .stat { padding: 5px; font-size: 14px; }
+  .topbar { padding-inline: 12px; flex-wrap: wrap; }
+  .home-heading h1 { font-size: 23px; }
+  .learning-home { padding: 16px; }
+  .unit-banner h2 { font-size: 18px; }
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --green-d: #70DD8C; --blue-d: #7BCCFA; --red-d: #FF9999; }
+}
+:root[data-theme="dark"] { --green-d: #70DD8C; --blue-d: #7BCCFA; --red-d: #FF9999; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
